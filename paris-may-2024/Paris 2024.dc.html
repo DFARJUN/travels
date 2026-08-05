@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#1c2430">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1c2430"/>
+    <path d="M0 620 L360 400 L560 540 L820 320 L1200 600 L1200 800 L0 800 Z" fill="#2b3a4a"/>
+    <circle cx="960" cy="200" r="70" fill="#e8b04b"/>
+    <text x="600" y="150" font-family="sans-serif" font-size="86" font-weight="800" fill="#fff" text-anchor="middle">Paris 2024</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./route-map.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: Assistant, system-ui, sans-serif; -webkit-font-smoothing: antialiased; color: #222; }
+  * { box-sizing: border-box; }
+  a { color: #222; text-decoration: none; }
+  a:hover { color: #b8452b; }
+  ::selection { background: #f6ddd4; }
+  .sleep-tl { display:flex; align-items:stretch; gap:10px; }
+  .sleep-tl-cap { flex:0 0 132px; display:flex; flex-direction:column; justify-content:center; gap:6px; padding:16px 18px; border-radius:16px; background:#101b2d; color:#fff; }
+  .sleep-tl-stop { flex-basis:0; min-width:72px; position:relative; overflow:hidden; border-radius:16px; min-height:158px; display:flex; flex-direction:column; justify-content:flex-end; color:#fff; background-size:cover; background-position:center; }
+  .sleep-tl-stop::before { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(16,27,45,.85), rgba(16,27,45,.18) 58%, rgba(16,27,45,0)); }
+  .sleep-tl-in { position:relative; padding:13px 15px; }
+  @media (max-width:820px) {
+    .sleep-tl { flex-direction:column; }
+    .sleep-tl-cap { flex:0 0 auto; flex-direction:row; align-items:center; gap:12px; }
+    .sleep-tl-stop { flex-basis:auto; min-height:104px; }
+    .sleep-tl-big { min-height:150px; }
+  }
+</style>
+</helmet>
+<div dir="rtl" style="background:#fff;min-height:100vh">
+
+  <section style="position:relative;min-height:430px;display:flex;align-items:flex-end;background:#1c2430;overflow:hidden">
+    <div style="position:absolute;inset:0">
+      <image-slot id="paris-hero" shape="rect" placeholder="תמונת אווירה — פריז" src="https://commons.wikimedia.org/wiki/Special:FilePath/Panorama%20from%20the%20Eiffel%20Tower%20at%20the%20sunset%2C%20Paris%2020%20April%202013.jpg?width=1800"></image-slot>
+    </div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(12,17,26,.18) 0%,rgba(12,17,26,.34) 55%,rgba(12,17,26,.78) 100%)"></div>
+    <div style="position:relative;pointer-events:none;width:100%;max-width:1300px;margin:0 auto;padding:120px 28px 44px">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px">
+        <div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:#ffd9cb;text-shadow:0 1px 8px rgba(0,0,0,.4)">
+            <span style="width:7px;height:7px;border-radius:50%;background:#ffd9cb"></span>
+            <span>בסיס אחד · שבוע בפריז</span>
+          </div>
+          <h1 style="margin:12px 0 0;font-size:clamp(38px,5.4vw,66px);font-weight:800;letter-spacing:-.03em;line-height:1.02;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.35)">פריז 2024</h1>
+          <div style="margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:16.5px;color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(0,0,0,.4)">
+            <span style="font-weight:700;white-space:nowrap">8–15 במאי 2024</span>
+            <span style="opacity:.55">·</span><span>7 לילות</span>
+            <span style="opacity:.55">·</span><span>בסיס אחד</span>
+            <span style="opacity:.55">·</span><span>דור וגילי</span>
+          </div>
+        </div>
+        <button type="button" onClick="{{ goRoute }}" style="pointer-events:auto;padding:14px 26px;border:0;border-radius:12px;background:#c0553b;color:#fff;font:600 16px/1 Assistant,sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.3)" style-hover="background:#a8462e">לצפייה במסלול היומי</button>
+      </div>
+    </div>
+  </section>
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #ebebeb">
+    <nav>
+      <div style="max-width:1300px;margin:0 auto;padding:7px 28px;display:flex;gap:4px;overflow-x:auto;justify-content:center">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+          <button type="button" onClick="{{ t.onPick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </nav>
+  </header>
+
+  <main style="max-width:1300px;margin:0 auto;padding:0 28px 100px">
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);padding-top:44px">
+
+      <div style="min-width:0">
+
+        <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="padding-bottom:34px;border-bottom:1px solid #ebebeb">
+              <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em">שבוע בפריז</h2>
+              <p style="margin:14px 0 0;font-size:17.5px;line-height:1.75;color:#444;max-width:64ch;text-wrap:pretty">שמונה ימים בפריז מבסיס אחד, 8.5–15.5. זהו שלד: היעדים והתוכנית היומית עדיין להשלמה. העוגן היחיד שכבר בפנים — הופעה של טיילור סוויפט ב־Paris La Défense Arena, שישי 10.5.</p>
+            </div>
+
+            <div style="padding:34px 0;border-bottom:1px solid #ebebeb">
+              <h2 style="margin:0 0 22px;font-size:26px;font-weight:800;letter-spacing:-.02em">מה שלא מפספסים</h2>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px 34px">
+                <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="4">
+                  <div style="display:flex;gap:15px;align-items:flex-start">
+                    <span style="flex:0 0 42px;height:42px;border-radius:13px;background:#faf3f0;display:grid;place-items:center;font-size:19px">{{ h.icon }}</span>
+                    <div>
+                      <div style="font-weight:700;font-size:17px">{{ h.title }}</div>
+                      <div style="margin-top:4px;font-size:15px;line-height:1.6;color:#717171">{{ h.text }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="padding:34px 0;border-bottom:1px solid #ebebeb">
+              <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em">איפה ישנים</h2>
+              <p style="margin:8px 0 22px;font-size:16px;color:#717171">מהנחיתה ועד ההמראה. הגודל לפי מספר הלילות.</p>
+              <div class="sleep-tl">
+                <div class="sleep-tl-cap">
+                  <div style="font-size:24px">🛬</div>
+                  <div>
+                    <div style="font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#ffd9cb">נחיתה</div>
+                    <div style="font-size:16px;font-weight:800">{{ tlStartDate }}</div>
+                    <div style="font-size:13.5px;opacity:.85">לינה בפריז</div>
+                  </div>
+                </div>
+                <sc-for list="{{ tlStops }}" as="b" hint-placeholder-count="5">
+                  <div class="{{ b.cls }}" style="{{ b.style }}">
+                    <div class="sleep-tl-in">
+                      <span style="display:inline-block;font:700 12px/1 Assistant,sans-serif;background:rgba(255,255,255,.92);color:#101b2d;padding:4px 9px;border-radius:999px">{{ b.nights }}</span>
+                      <div style="margin-top:8px;font-weight:800;font-size:16px">{{ b.name }}</div>
+                      <div style="margin-top:1px;font-size:13px;opacity:.9">{{ b.dates }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+                <div class="sleep-tl-cap">
+                  <div style="font-size:24px">🛫</div>
+                  <div>
+                    <div style="font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#ffd9cb">המראה</div>
+                    <div style="font-size:16px;font-weight:800">{{ tlEndDate }}</div>
+                    <div style="font-size:13.5px;opacity:.85">{{ tlEndTime }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding:34px 0 0">
+              <h2 style="margin:0 0 18px;font-size:26px;font-weight:800;letter-spacing:-.02em">מה שכדאי לדעת</h2>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px">
+                <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
+                  <div style="border:1px solid #ebebeb;border-radius:16px;padding:20px 22px">
+                    <div style="font-weight:700;font-size:16.5px">{{ n.label }}</div>
+                    <p style="margin:7px 0 0;font-size:15.5px;line-height:1.65;color:#717171;text-wrap:pretty">{{ n.text }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isRoute }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+              <div>
+                <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em">המסלול, יום אחר יום</h2>
+                <p style="margin:7px 0 0;font-size:16px;color:#717171">לחיצה על יום פותחת את הפירוט. מעבר עם העכבר מדגיש את העצירה במפה.</p>
+              </div>
+              <div style="display:flex;gap:5px;padding:4px;background:#f7f7f7;border-radius:999px">
+                <button type="button" onClick="{{ pickSpine }}" style="{{ spineBtn }}">ציר זמן</button>
+                <button type="button" onClick="{{ pickCards }}" style="{{ cardsBtn }}">כרטיסים</button>
+              </div>
+            </div>
+
+            <div style="margin-top:20px;position:relative;height:400px;border-radius:18px;overflow:hidden;border:1px solid #ebebeb;background:#e8eef1">
+              <route-map ref="{{ mapRef }}" style="position:absolute;inset:0"></route-map>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:20px;margin:13px 4px 30px;font-size:14px;color:#444">
+              <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border-radius:50%;background:#5fc0a8;border:2px solid #0d7a63"></span>נחיתה</span>
+              <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid #222"></span>לינה</span>
+              <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border-radius:50%;background:#f4b63f;border:2px solid #b8452b"></span>טיול יום / ביקור</span>
+              <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border-radius:50%;background:#e07a5f;border:2px solid #a4462b"></span>טיסה הביתה</span>
+            </div>
+
+            <sc-if value="{{ isSpine }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="10">
+                  <section>
+                    <div style="position:sticky;top:56px;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 0 10px;background:linear-gradient(180deg,#fff 74%,rgba(255,255,255,0))">
+                      <span style="font-weight:700;font-size:13px;letter-spacing:.12em;color:#c0553b">{{ d.dayLabel }}</span>
+                      <span style="font-weight:700;font-size:16px">{{ d.dateLabel }}</span>
+                      <span style="flex:1;height:1px;background:#ebebeb"></span>
+                    </div>
+                    <div id="{{ d.domId }}" onClick="{{ d.onToggle }}" onMouseEnter="{{ d.onEnter }}" onMouseLeave="{{ d.onLeave }}" style="{{ d.rowStyle }}">
+                      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px">
+                        <h3 style="margin:0;font-size:21px;font-weight:800;letter-spacing:-.02em;flex:1;min-width:190px">{{ d.title }}</h3>
+                        <span style="font-size:14.5px;color:#717171">{{ d.meta }}</span>
+                        <span style="font-size:14.5px;font-weight:700;color:#c0553b;text-decoration:underline;text-underline-offset:3px">{{ d.toggleLabel }}</span>
+                      </div>
+                      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:12px">
+                        <sc-for list="{{ d.tags }}" as="tag" hint-placeholder-count="3">
+                          <span style="padding:6px 12px;border-radius:999px;border:1px solid #ebebeb;font-size:13.5px;color:#444">{{ tag }}</span>
+                        </sc-for>
+                      </div>
+                      <sc-if value="{{ d.open }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:20px;padding-top:20px;border-top:1px solid #ebebeb;display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:24px">
+                          <sc-for list="{{ d.blocks }}" as="bl" hint-placeholder-count="3">
+                            <div>
+                              <div style="font-weight:700;font-size:13px;letter-spacing:.1em;color:#c0553b">{{ bl.when }}</div>
+                              <p style="margin:9px 0 0;font-size:16px;line-height:1.7;color:#444;text-wrap:pretty">{{ bl.text }}</p>
+                            </div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ d.showNote }}" hint-placeholder-val="{{ false }}">
+                        <p style="margin:18px 0 0;padding:14px 17px;border-radius:13px;background:#fdf6ee;font-size:15px;line-height:1.65;color:#7a4f21">{{ d.note }}</p>
+                      </sc-if>
+                    </div>
+                  </section>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isCards }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:18px">
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="10">
+                  <article id="{{ d.domId }}" onClick="{{ d.onToggle }}" onMouseEnter="{{ d.onEnter }}" onMouseLeave="{{ d.onLeave }}" style="{{ d.cardStyle }}">
+                    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                      <span style="font-weight:700;font-size:13px;letter-spacing:.12em;color:#c0553b">{{ d.dayLabel }}</span>
+                      <span style="font-size:14px;color:#717171">{{ d.dateLabel }}</span>
+                    </div>
+                    <h3 style="margin:12px 0 0;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.25">{{ d.title }}</h3>
+                    <div style="margin-top:9px;font-size:14.5px;color:#717171">{{ d.meta }}</div>
+                    <sc-if value="{{ d.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:15px;padding-top:15px;border-top:1px solid #ebebeb;display:flex;flex-direction:column;gap:13px">
+                        <sc-for list="{{ d.blocks }}" as="bl" hint-placeholder-count="3">
+                          <div>
+                            <div style="font-weight:700;font-size:12.5px;letter-spacing:.1em;color:#c0553b">{{ bl.when }}</div>
+                            <p style="margin:7px 0 0;font-size:15px;line-height:1.65;color:#444">{{ bl.text }}</p>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <div style="margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;color:#c0553b">{{ d.toggleLabel }}</div>
+                  </article>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isChecklists }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+              <div>
+                <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em">צ'קליסטים</h2>
+                <p style="margin:7px 0 0;font-size:16px;color:#717171">הסימונים נשמרים אצלכם בדפדפן. {{ doneSummary }}</p>
+              </div>
+              <button type="button" onClick="{{ resetChecks }}" style="padding:11px 19px;border:1px solid #ddd;border-radius:12px;background:#fff;font:600 15px/1 Assistant,sans-serif;color:#222;cursor:pointer" style-hover="border-color:#222">איפוס</button>
+            </div>
+            <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:start">
+              <sc-for list="{{ lists }}" as="g" hint-placeholder-count="4">
+                <section style="border:1px solid #ebebeb;border-radius:18px;padding:24px 26px 12px">
+                  <div style="display:flex;align-items:center;gap:11px">
+                    <span style="flex:0 0 38px;height:38px;border-radius:12px;background:#faf3f0;display:grid;place-items:center;font-size:18px">{{ g.icon }}</span>
+                    <h3 style="margin:0;flex:1;font-size:19px;font-weight:800;letter-spacing:-.02em">{{ g.title }}</h3>
+                    <span style="font-size:14px;font-weight:700;color:#c0553b">{{ g.count }}</span>
+                  </div>
+                  <p style="margin:12px 0 6px;font-size:15px;line-height:1.6;color:#717171">{{ g.sub }}</p>
+                  <div style="display:flex;flex-direction:column">
+                    <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="5">
+                      <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-top:1px solid #f0f0f0;cursor:pointer">
+                        <input type="checkbox" checked="{{ it.done }}" onChange="{{ it.onToggle }}" style="margin:2px 0 0;width:18px;height:18px;accent-color:#c0553b;flex:0 0 auto;cursor:pointer">
+                        <span style="{{ it.textStyle }}">{{ it.text }}</span>
+                      </label>
+                    </sc-for>
+                  </div>
+                </section>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isBookings }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em">הזמנות</h2>
+            <p style="margin:7px 0 0;font-size:16px;color:#717171">הסטטוס מתעדכן לפי אישורים שהתקבלו. לחצו על "קוד אישור" לפרטים. {{ bookingSummary }}</p>
+            <div style="margin-top:26px;display:flex;flex-direction:column;gap:30px">
+              <sc-for list="{{ bookingGroups }}" as="grp" hint-placeholder-count="3">
+                <section>
+                  <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+                    <h3 style="margin:0;font-size:19px;font-weight:800;letter-spacing:-.02em">{{ grp.title }}</h3>
+                    <span style="flex:1;height:1px;background:#ebebeb"></span>
+                  </div>
+                  <div style="border:1px solid #ebebeb;border-radius:18px;overflow:hidden">
+                    <sc-for list="{{ grp.rows }}" as="r" hint-placeholder-count="3">
+                      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:19px 24px;border-top:1px solid #f0f0f0">
+                        <div style="flex:1;min-width:210px">
+                          <div style="font-weight:700;font-size:16.5px">{{ r.title }}</div>
+                          <div style="margin-top:4px;font-size:15px;color:#717171">{{ r.detail }}</div>
+                        </div>
+                        <div style="font-size:14.5px;color:#444;min-width:118px">{{ r.when }}</div>
+                        <sc-if value="{{ r.hasConfirmation }}">
+                          <button type="button" onClick="{{ r.onDetails }}" style="padding:8px 14px;border-radius:999px;cursor:pointer;font:700 13px/1 Assistant,sans-serif;border:1px solid #d9c4a3;background:#fbf6ec;color:#8a5a1a">קוד אישור</button>
+                        </sc-if>
+                        <span style="{{ r.badgeStyle }}">{{ r.status }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </section>
+              </sc-for>
+            </div>
+            <sc-if value="{{ hasModal }}">
+              <div style="position:fixed;inset:0;background:rgba(16,27,45,.5);display:grid;place-items:center;z-index:2000;padding:20px">
+                <div style="background:#fff;border-radius:20px;max-width:440px;width:100%;padding:26px 28px;box-shadow:0 24px 70px rgba(0,0,0,.35)">
+                  <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+                    <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#c0553b">קוד אישור</span>
+                    <span style="flex:1"></span>
+                    <button type="button" onClick="{{ closeModal }}" style="border:0;background:#f3ede9;border-radius:999px;width:32px;height:32px;cursor:pointer;font-size:15px;color:#444">✕</button>
+                  </div>
+                  <div style="font-size:32px;font-weight:800;letter-spacing:.05em;color:#101b2d">{{ modalCode }}</div>
+                  <div style="margin-top:4px;font-size:16px;font-weight:700;color:#555">{{ modalTitle }}</div>
+                  <div style="margin-top:16px;display:flex;flex-direction:column">
+                    <sc-for list="{{ modalLines }}" as="ln" hint-placeholder-count="4">
+                      <div style="font-size:15px;line-height:1.55;color:#333;border-top:1px solid #f0f0f0;padding:11px 0">{{ ln }}</div>
+                    </sc-for>
+                  </div>
+                  <button type="button" onClick="{{ closeModal }}" style="margin-top:16px;width:100%;padding:12px;border:0;border-radius:12px;background:#c0553b;color:#fff;font:700 15px/1 Assistant,sans-serif;cursor:pointer">סגירה</button>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+      </div>
+
+
+    </div>
+  </main>
+
+  <footer style="border-top:1px solid #ebebeb;padding:32px 28px">
+    <div style="max-width:1300px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14.5px;color:#717171">
+      <span>פריז · 8–15 במאי 2024 · דור וגילי</span>
+      <span>שבוע בפריז, בסיס אחד. שלד מוכן להשלמה.</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1024}}">
+const DAYS = [
+  { id:'d1', dayLabel:'יום 1', dateLabel:'רביעי 8.5', title:'נחיתה בפריז', meta:'הגעה · 7 לילות בפריז', tags:['נחיתה'],
+    label:'1', kind:'embark', place:'שדה התעופה CDG', lat:49.0097, lng:2.5479,
+    blocks:[
+      {when:'הגעה',text:'נחיתה בפריז והתמקמות בבסיס לשבוע. שאר היום — להשלים.'}],
+    note:'שלד — למלא שעת נחיתה, תחבורה מהשדה ולינה.' },
+  { id:'d2', dayLabel:'יום 2', dateLabel:'חמישי 9.5', title:'יום פנוי בפריז', meta:'בסיס פריז', tags:[],
+    label:'2', kind:'port', place:'פריז', lat:48.8566, lng:2.3522,
+    blocks:[
+      {when:'תוכנית',text:'עדיין לא תוכנן — להשלים.'}] },
+  { id:'d3', dayLabel:'יום 3', dateLabel:'שישי 10.5', title:'הופעה של טיילור סוויפט', meta:'ערב · Paris La Défense Arena', tags:['טיילור סוויפט','La Défense Arena'],
+    label:'3', kind:'port', stay:false, place:'Paris La Défense Arena', lat:48.8955, lng:2.2295,
+    blocks:[
+      {when:'יום',text:'עדיין לא תוכנן — להשלים.'},
+      {when:'ערב',text:'הופעה של טיילור סוויפט ב־Paris La Défense Arena.'}] },
+  { id:'d4', dayLabel:'יום 4', dateLabel:'שבת 11.5', title:'יום פנוי בפריז', meta:'בסיס פריז', tags:[],
+    label:'4', kind:'port', place:'פריז', lat:48.8566, lng:2.3522,
+    blocks:[
+      {when:'תוכנית',text:'עדיין לא תוכנן — להשלים.'}] },
+  { id:'d5', dayLabel:'יום 5', dateLabel:'ראשון 12.5', title:'יום פנוי בפריז', meta:'בסיס פריז', tags:[],
+    label:'5', kind:'port', place:'פריז', lat:48.8566, lng:2.3522,
+    blocks:[
+      {when:'תוכנית',text:'עדיין לא תוכנן — להשלים.'}] },
+  { id:'d6', dayLabel:'יום 6', dateLabel:'שני 13.5', title:'יום פנוי בפריז', meta:'בסיס פריז', tags:[],
+    label:'6', kind:'port', place:'פריז', lat:48.8566, lng:2.3522,
+    blocks:[
+      {when:'תוכנית',text:'עדיין לא תוכנן — להשלים.'}] },
+  { id:'d7', dayLabel:'יום 7', dateLabel:'שלישי 14.5', title:'יום פנוי בפריז', meta:'בסיס פריז', tags:[],
+    label:'7', kind:'port', place:'פריז', lat:48.8566, lng:2.3522,
+    blocks:[
+      {when:'תוכנית',text:'עדיין לא תוכנן — להשלים.'}] },
+  { id:'d8', dayLabel:'יום 8', dateLabel:'רביעי 15.5', title:'טיסה הביתה', meta:'צ׳ק־אאוט · טיסה', tags:['טיסה הביתה'],
+    label:'8', kind:'disembark', place:'שדה התעופה CDG', lat:49.0097, lng:2.5479,
+    blocks:[
+      {when:'יום',text:'צ׳ק־אאוט וטיסה הביתה. פרטים — להשלים.'}] }
+];
+
+const BASES = [
+  { slotId:'base-paris', name:'פריז', nights:'7 לילות', dates:'8.5–14.5', covers:'כל הטיול מבסיס אחד בפריז.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Tour%20Eiffel%20Wikimedia%20Commons.jpg?width=900' }
+];
+
+const HIGHLIGHTS = [
+  { icon:'🎤', title:'הופעה של טיילור סוויפט', text:'שישי 10.5, Paris La Défense Arena.' }
+];
+
+const NOTES = [
+  { label:'סטטוס', text:'זהו שלד. הימים הפנויים ממתינים לתכנון — מוסיפים יעדים, מסעדות ותוכנית יומית לכל יום.' },
+  { label:'הקונצרט', text:'הופעה של טיילור סוויפט ב־Paris La Défense Arena, שישי 10.5. הזירה באזור La Défense, מערבית למרכז פריז.' }
+];
+
+const LISTS = [
+  { id:'plan', icon:'🗺️', title:'להשלים בתכנון', sub:'מה שצריך לסגור כדי להפוך את השלד למסלול מלא.', items:[
+    'לינה בפריז','יעדים ותוכנית יומית לכל יום','מסעדות ובתי קפה','כרטיסים לאטרקציות','תחבורה בעיר','תחבורה מהשדה ואליו'] },
+  { id:'pack', icon:'🎒', title:'לפני היציאה', sub:'הדברים שקל לשכוח.', items:[
+    'דרכונים','כרטיסי ההופעה','מתאם חשמל אירופאי','מטענים','נעליים נוחות להליכה','שכבות למזג אוויר משתנה','מפות אופליין של פריז'] }
+];
+
+const BOOKINGS = [
+  { title:'טיסות', rows:[
+    { id:'f1', title:'טיסה הלוך־חזור · תל אביב ↔ פריז', detail:'פרטים להשלמה', when:'8.5 / 15.5' }] },
+  { title:'לינה', rows:[
+    { id:'h1', title:'לינה בפריז', detail:'7 לילות · פרטים להשלמה', when:'8.5–14.5' }] },
+  { title:'כרטיסים', rows:[
+    { id:'t1', title:'הופעה של טיילור סוויפט · Paris La Défense Arena', detail:'ערב', when:'10.5', booked:true }] }
+];
+
+const TABS = [
+  { id:'overview', label:'סקירה' },
+  { id:'route', label:'המסלול' },
+  { id:'lists', label:'צ\'קליסטים' },
+  { id:'bookings', label:'הזמנות' }
+];
+
+const CK = 'paris24.checks';
+const BK = 'paris24.bookings';
+
+class Component extends DCLogic {
+  state = { tab: 'overview', layout: 'spine', open: 'd1', hover: null, checks: {}, bookings: {}, heroFilled: false, modal: null };
+
+  _checkHero() {
+    fetch('.image-slots.state.json', { cache: 'no-store' })
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => {
+        const filled = !!(j && j['paris-hero'] && (j['paris-hero'].src || j['paris-hero'].data || Object.keys(j['paris-hero']).length));
+        if (filled !== this.state.heroFilled) this.setState({ heroFilled: filled });
+      })
+      .catch(() => {});
+  }
+
+  componentDidMount() {
+    try {
+      this.setState({
+        checks: JSON.parse(localStorage.getItem(CK) || '{}'),
+        bookings: JSON.parse(localStorage.getItem(BK) || '{}')
+      });
+    } catch (e) {}
+    this._syncMap();
+    this._checkHero();
+    this._heroTimer = setInterval(() => this._checkHero(), 4000);
+  }
+
+  componentWillUnmount() { clearInterval(this._heroTimer); }
+
+  componentDidUpdate() { this._syncMap(); }
+
+  _syncMap() {
+    const el = this._map;
+    if (!el) return;
+    if (!el._wired) {
+      el._wired = true;
+      el.stops = DAYS.map(d => ({ id: d.id, label: d.label, kind: d.kind, stay: d.stay, place: d.place, lat: d.lat, lng: d.lng }));
+      el.addEventListener('stophover', e => this.setState({ hover: e.detail }));
+      el.addEventListener('stopclick', e => {
+        this.setState({ open: e.detail, hover: e.detail });
+        setTimeout(() => {
+          const t = document.getElementById('day-' + e.detail);
+          if (t) {
+            const y = t.getBoundingClientRect().top + window.scrollY - 120;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 60);
+      });
+    }
+    if (el.highlight) el.highlight(this.state.hover || this.state.open);
+  }
+
+  _persist(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+  _toggleCheck(k) {
+    const checks = Object.assign({}, this.state.checks);
+    checks[k] = !checks[k];
+    this.setState({ checks });
+    this._persist(CK, checks);
+  }
+
+  _toggleBooking(id, cur) {
+    const bookings = Object.assign({}, this.state.bookings);
+    bookings[id] = !cur;
+    this.setState({ bookings });
+    this._persist(BK, bookings);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const days = Math.max(0, Math.ceil((new Date('2026-09-17T18:00:00') - new Date()) / 864e5));
+
+    const tabStyle = active =>
+      'padding:10px 18px;border:0;border-radius:999px;background:' + (active ? '#f3ede9' : 'transparent') +
+      ';color:' + (active ? '#c0553b' : '#444') + ';font:' + (active ? 700 : 500) +
+      ' 16px/1 Assistant,sans-serif;cursor:pointer;white-space:nowrap;transition:background .15s ease';
+
+    const segStyle = active =>
+      'padding:9px 17px;border:0;border-radius:999px;background:' + (active ? '#fff' : 'transparent') +
+      ';color:' + (active ? '#222' : '#717171') + ';font:600 14.5px/1 Assistant,sans-serif;cursor:pointer;' +
+      (active ? 'box-shadow:0 1px 4px rgba(0,0,0,.14);' : '');
+
+    const rowStyle = (open, hot) =>
+      'padding:22px 24px;border:1px solid ' + (hot ? '#c0553b' : '#ebebeb') + ';border-radius:18px;margin-bottom:12px;cursor:pointer;background:#fff;' +
+      'transition:box-shadow .18s ease,border-color .18s ease,transform .18s ease;' +
+      (hot ? 'box-shadow:0 10px 26px rgba(0,0,0,.09);transform:translateY(-1px);' : 'box-shadow:0 1px 2px rgba(0,0,0,.03);') +
+      (open ? 'background:#fffdfc;' : '');
+
+    const cardStyle = (open, hot) =>
+      'display:flex;flex-direction:column;padding:22px;border:1px solid ' + (hot ? '#c0553b' : '#ebebeb') +
+      ';border-radius:18px;background:#fff;cursor:pointer;min-height:184px;transition:box-shadow .18s ease,transform .18s ease;' +
+      (hot ? 'box-shadow:0 10px 26px rgba(0,0,0,.09);transform:translateY(-2px);' : 'box-shadow:0 1px 2px rgba(0,0,0,.03);');
+
+    let checked = 0, total = 0;
+    const lists = LISTS.map(g => {
+      let n = 0;
+      const items = g.items.map((text, i) => {
+        const key = g.id + ':' + i;
+        const done = !!s.checks[key];
+        if (done) n++;
+        return {
+          text, done,
+          onToggle: () => this._toggleCheck(key),
+          textStyle: 'font-size:16px;line-height:1.55;color:' + (done ? '#a0a0a0' : '#333') +
+            (done ? ';text-decoration:line-through' : '')
+        };
+      });
+      checked += n; total += g.items.length;
+      return { title: g.title, sub: g.sub, icon: g.icon, count: n + '/' + g.items.length, items };
+    });
+
+    let bDone = 0, bTotal = 0;
+    const bookingGroups = BOOKINGS.map(g => ({
+      title: g.title,
+      rows: g.rows.map(r => {
+        const ok = !!r.booked;
+        bTotal++; if (ok) bDone++;
+        return Object.assign({}, r, {
+          status: ok ? 'מאושר' : 'ממתין',
+          hasConfirmation: !!r.confirmation,
+          onDetails: () => this.setState({ modal: r.confirmation }),
+          badgeStyle: 'padding:8px 16px;border-radius:999px;font:700 13.5px/1 Assistant,sans-serif;border:1px solid ' +
+            (ok ? '#bfe3d7' : '#e8d5cf') + ';background:' + (ok ? '#eef8f4' : '#fdf3f0') + ';color:' + (ok ? '#0d7a63' : '#b8452b')
+        });
+      })
+    }));
+
+    return {
+      heroHintVisible: !s.heroFilled,
+      countdownNum: days,
+      countdownWord: days === 1 ? 'יום' : 'ימים',
+      countdownShort: 'עוד ' + days + ' ימים',
+      countdownParen: 'בעוד ' + days + ' ימים',
+      tabs: TABS.map(t => ({
+        label: t.label,
+        style: tabStyle(s.tab === t.id),
+        onPick: () => this.setState({ tab: t.id })
+      })),
+      isOverview: s.tab === 'overview',
+      isRoute: s.tab === 'route',
+      isChecklists: s.tab === 'lists',
+      isBookings: s.tab === 'bookings',
+      goRoute: () => this.setState({ tab: 'route' }),
+      isSpine: s.layout === 'spine',
+      isCards: s.layout === 'cards',
+      pickSpine: () => this.setState({ layout: 'spine' }),
+      pickCards: () => this.setState({ layout: 'cards' }),
+      spineBtn: segStyle(s.layout === 'spine'),
+      cardsBtn: segStyle(s.layout === 'cards'),
+      mapRef: el => { this._map = el; this._syncMap(); },
+      bases: BASES,
+      tlStartDate: '8.5', tlStartTime: '',
+      tlEndDate: '15.5', tlEndTime: 'טיסה הביתה',
+      tlStops: BASES.filter(b => b.slotId !== 'base-cta').map(b => {
+        const n = parseInt((String(b.nights).match(/\d+/) || ['1'])[0], 10) || 1;
+        return {
+          name: b.name, dates: b.dates, nights: b.nights,
+          cls: 'sleep-tl-stop' + (n >= 2 ? ' sleep-tl-big' : ''),
+          style: 'flex-grow:' + n + ';background-image:url(' + b.img + ')'
+        };
+      }),
+      highlights: HIGHLIGHTS,
+      notes: NOTES,
+      lists,
+      doneSummary: checked + ' מתוך ' + total + ' סומנו',
+      resetChecks: () => { this.setState({ checks: {} }); this._persist(CK, {}); },
+      bookingGroups,
+      bookingSummary: bDone + ' מתוך ' + bTotal + ' מאושרות',
+      hasModal: !!s.modal,
+      modalCode: s.modal ? s.modal.code : '',
+      modalTitle: s.modal ? s.modal.title : '',
+      modalLines: s.modal ? s.modal.lines : [],
+      closeModal: () => this.setState({ modal: null }),
+      days: DAYS.map(d => {
+        const open = s.open === d.id;
+        const hot = s.hover === d.id || open;
+        return Object.assign({}, d, {
+          domId: 'day-' + d.id,
+          open,
+          showNote: open && !!d.note,
+          toggleLabel: open ? 'סגירה' : 'לפירוט היום',
+          rowStyle: rowStyle(open, hot),
+          cardStyle: cardStyle(open, hot),
+          onToggle: () => this.setState({ open: open ? null : d.id }),
+          onEnter: () => this.setState({ hover: d.id }),
+          onLeave: () => this.setState({ hover: null })
+        });
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

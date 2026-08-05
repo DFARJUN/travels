@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הטיולים שלנו</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: Assistant, system-ui, sans-serif; -webkit-font-smoothing: antialiased; color: #222; }
+  * { box-sizing: border-box; }
+  a { color: #222; text-decoration: none; }
+  ::selection { background: #f6ddd4; }
+
+  .wrap { max-width: 1300px; margin: 0 auto; padding: 0 28px; }
+
+  /* Hero */
+  .hero { position: relative; min-height: 360px; display: flex; align-items: flex-end;
+          background: #1c2430; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0;
+                  background: radial-gradient(120% 120% at 15% 0%, #2b3a4a 0%, #1c2430 55%, #141c26 100%); }
+  .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+                 background: linear-gradient(180deg, rgba(12,17,26,.05) 0%, rgba(12,17,26,.35) 60%, rgba(12,17,26,.72) 100%); }
+  .hero-in { position: relative; width: 100%; max-width: 1300px; margin: 0 auto; padding: 110px 28px 44px; }
+  .kicker { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 700;
+            color: #ffd9cb; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+  .kicker span.dot { width: 7px; height: 7px; border-radius: 50%; background: #ffd9cb; }
+  .hero h1 { margin: 12px 0 0; font-size: clamp(38px,5.4vw,66px); font-weight: 800;
+             letter-spacing: -.03em; line-height: 1.02; color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+  .hero .sub { margin-top: 14px; font-size: 16.5px; color: rgba(255,255,255,.92);
+               text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+
+  /* Grid */
+  main { padding: 44px 0 100px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+
+  .card { display: flex; flex-direction: column; border: 1px solid #ebebeb; border-radius: 18px;
+          overflow: hidden; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.03);
+          transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease; }
+  .card:hover { box-shadow: 0 12px 30px rgba(0,0,0,.10); transform: translateY(-2px); border-color: #d9d9d9; }
+  .card-cover { position: relative; height: 178px; background: #1c2430 center/cover no-repeat; }
+  .card-cover::after { content: ""; position: absolute; inset: 0;
+                       background: linear-gradient(to top, rgba(16,27,45,.55), rgba(16,27,45,0) 55%); }
+  .card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .card-date { font-weight: 700; font-size: 13px; letter-spacing: .04em; color: #c0553b; }
+  .card h3 { margin: 8px 0 0; font-size: 21px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+  .card-meta { margin-top: 9px; font-size: 14.5px; line-height: 1.6; color: #717171; }
+  .card-go { margin-top: auto; padding-top: 16px; font-size: 14.5px; font-weight: 700; color: #c0553b; }
+  .card:hover .card-go { text-decoration: underline; text-underline-offset: 3px; }
+  .badge-soon { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px;
+                background: #fdf6ee; color: #7a4f21; font-size: 12.5px; font-weight: 700; }
+
+  footer { border-top: 1px solid #ebebeb; padding: 32px 28px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+                 font-size: 14.5px; color: #717171; padding: 0; max-width: 1300px; }
+</style>
+</head>
+<body>
+<div dir="rtl" style="background:#fff;min-height:100vh">
+
+  <section class="hero">
+    <div class="hero-in">
+      <div class="kicker"><span class="dot"></span><span>כל המסלולים במקום אחד</span></div>
+      <h1>הטיולים שלנו</h1>
+      <div class="sub">אוסף אתרי הטיול האינטראקטיביים. לחיצה על טיול פותחת את המסלול המלא.</div>
+    </div>
+  </section>
+
+  <main>
+    <div class="wrap">
+      <div class="grid" id="trips">
+        <!-- TRIP CARDS: add a new <a class="card"> block here for every new trip site. Link to the .dc.html source file, not the standalone. Keep newest-first. -->
+
+        <a class="card" href="sicily-sep-2026/Sicilia%202026%20-bundle-src-.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Mt%20Etna%20and%20Taormina%20as%20seen%20from%20the%20Ancient%20Theatre%20of%20Taormina%20(22290641726).jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">17.9–26.9.2026</div>
+            <h3>סיציליה במכונית</h3>
+            <div class="card-meta">9 לילות · 6 בסיסים · לופ מסביב לאי, ~800 ק"מ, עם יומיים חוף בסקוליטי.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="london-june-2026/London%202026.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/London%20Tower%20Bridge.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">18.6–22.6.2026</div>
+            <h3>לונדון 2026</h3>
+            <div class="card-meta">4 לילות · בסיס אחד בשורדיץ' · הארי סטיילס בוומבלי, שווקים ושכונה חדשה בכל יום.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="copenhagen-apr-2026/Copenhagen%202026.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Nyhavn%20copenhagen.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">21.4–26.4.2026</div>
+            <h3>קופנהגן</h3>
+            <div class="card-meta">5 לילות · בסיס אחד על כיכר העירייה · ניוהאבן, טיבולי, CopenHill, ריפן, והכול על אופניים.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="japan-sep-2025/Japan%202025.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Kiyomizu-dera%20in%20Kyoto-r.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">ספטמבר 2025</div>
+            <h3>יפן 2025</h3>
+            <div class="card-meta">אתר המסלול קיים אך עדיין על בסיס התבנית - התוכן ממתין למילוי.</div>
+            <span class="badge-soon">בהכנה</span>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="japan-oct-2024/Japan%202024.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Mount%20Fuji%20and%20Fog%20over%20Lake%20Yamanaka.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">10.10–29.10.2024</div>
+            <h3>יפן 2024</h3>
+            <div class="card-meta">18 לילות · 5 בסיסים · טוקיו, האקונה, קיוטו, נארה ואוסקה.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="paris-may-2024/Paris%202024.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tour%20Eiffel%20Wikimedia%20Commons.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">8.5–15.5.2024</div>
+            <h3>פריז 2024</h3>
+            <div class="card-meta">7 לילות · בסיס אחד · הופעה של טיילור סוויפט ב־La Défense. שלד — הימים ממתינים לתכנון.</div>
+            <span class="badge-soon">שלד</span>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="athens-feb-2024/Athens%202024.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/The%20Acropolis%20of%20Athens%20viewed%20from%20the%20Hill%20of%20the%20Muses%20(14220794964).jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">24.2–27.2.2024</div>
+            <h3>אתונה 2024</h3>
+            <div class="card-meta">3 לילות · בסיס אחד במרכז · אקרופוליס, הגן הלאומי, Little Kook ופלאקה, הכול במרחק הליכה.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="usa-oct-2022/USA%202022.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Manhattan%20from%20Weehawken,%20NJ.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">26.9–8.10.2022</div>
+            <h3>ניו יורק & וושינגטון</h3>
+            <div class="card-meta">12 לילות · שבועיים בניו יורק עם קפיצה של יומיים לוושינגטון. ברודוויי, סנטרל פארק, ברוקלין והפיננסי.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="south-africa-sep-2019/South%20Africa%202019.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Cape%20Town%20from%20Table%20Mountain.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">29.9–15.10.2019</div>
+            <h3>דרום אפריקה</h3>
+            <div class="card-meta">16 לילות · 10 בסיסים · ספארי בקרוגר, נתיב הגנים מפורט אליזבט מערבה, לווייתנים בהרמנוס וקייפטאון.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+        <a class="card" href="china-sep-2018/China%202018.dc.html">
+          <div class="card-cover" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Wall%20of%20China%20at%20Jinshanling-edit.jpg?width=1200')"></div>
+          <div class="card-body">
+            <div class="card-date">3.9–22.9.2018</div>
+            <h3>סין ברכבת</h3>
+            <div class="card-meta">19 לילות · 6 בסיסים · בייג'ין, שיאן, צ'נגדו, יאנגשו, הונג קונג ושנגחאי.</div>
+            <div class="card-go">לצפייה במסלול ←</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>הטיולים שלנו · דור וגילי</span>
+      <span>כל טיול חדש שנבנה מהתבנית נוסף לכאן אוטומטית.</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
