@@ -1,0 +1,1005 @@
+<title>USA Road Trip, October 2026</title>
+
+<style>
+  :root {
+    --paper:     #F5F6F2;
+    --paper-2:   #ECEEE8;
+    --paper-3:   #E2E5DE;
+    --ink:       #14191A;
+    --ink-2:     #3A4444;
+    --muted:     #6B7574;
+    --line:      #D4D9D4;
+    --line-soft: #E3E6E1;
+    --rt-a:      #C2542A;
+    --rt-b:      #5A5FB0;
+    --rt-c:      #1E7D80;
+    --water:     #3B8CA8;
+    --water-a:   0.13;
+    --land-lake: 0.20;
+    --focus:     #14191A;
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:     #0D1212;  --paper-2: #151C1B;  --paper-3: #1D2625;
+      --ink:       #E2E8E5;  --ink-2:   #B2BCB9;  --muted:   #869190;
+      --line:      #242E2D;  --line-soft: #1A2221;
+      --rt-a:      #E0855A;  --rt-b:    #9195E0;  --rt-c:    #45B2B2;
+      --water:     #5FA9C4;  --water-a: 0.16;     --land-lake: 0.24;
+      --focus:     #E2E8E5;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:     #0D1212;  --paper-2: #151C1B;  --paper-3: #1D2625;
+    --ink:       #E2E8E5;  --ink-2:   #B2BCB9;  --muted:   #869190;
+    --line:      #242E2D;  --line-soft: #1A2221;
+    --rt-a:      #E0855A;  --rt-b:    #9195E0;  --rt-c:    #45B2B2;
+    --water:     #5FA9C4;  --water-a: 0.16;     --land-lake: 0.24;
+    --focus:     #E2E8E5;
+  }
+
+  :root[data-theme="light"] {
+    --paper:     #F5F6F2;  --paper-2: #ECEEE8;  --paper-3: #E2E5DE;
+    --ink:       #14191A;  --ink-2:   #3A4444;  --muted:   #6B7574;
+    --line:      #D4D9D4;  --line-soft: #E3E6E1;
+    --rt-a:      #C2542A;  --rt-b:    #5A5FB0;  --rt-c:    #1E7D80;
+    --water:     #3B8CA8;  --water-a: 0.13;     --land-lake: 0.20;
+    --focus:     #14191A;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 47rem;
+    margin: 0 auto;
+    padding: 3.25rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .masthead { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5.6vw, 2.95rem);
+    line-height: 1.07;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .standfirst { font-size: 1.06rem; color: var(--ink-2); max-width: 36rem; }
+
+  .verdict {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 1.35rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .verdict h2 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    margin: 0;
+  }
+
+  .verdict p { color: var(--ink-2); font-size: 0.98rem; }
+  .verdict p b { color: var(--ink); font-weight: 600; }
+
+  .verdict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin-top: 0.35rem; }
+  .vg { display: flex; flex-direction: column; gap: 0.12rem; }
+  .vg dt {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .vg dd { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+
+  @media (max-width: 620px) { .verdict-grid { grid-template-columns: 1fr; gap: 0.6rem; } }
+
+  section { display: flex; flex-direction: column; gap: 1.35rem; }
+
+  h2.sec {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  p { margin: 0; }
+  .lede { color: var(--ink-2); }
+
+  .scroller { overflow-x: auto; border: 1px solid var(--line); }
+  table { border-collapse: collapse; width: 100%; font-size: 0.87rem; min-width: 34rem; }
+  th, td { text-align: left; padding: 0.62rem 0.8rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+
+  thead th {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  thead th.ca { color: var(--rt-a); }
+  thead th.cb { color: var(--rt-b); }
+  thead th.cc { color: var(--rt-c); }
+
+  tbody th {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: none; }
+
+  .mapblock { display: flex; flex-direction: column; gap: 0.9rem; }
+  .maptools { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+  .rbtn {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: var(--paper);
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+    padding: 0.42rem 0.75rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    border-radius: 0;
+  }
+  .rbtn:hover { border-color: var(--muted); }
+  .rbtn .swatch { width: 13px; height: 3px; flex: none; background: var(--muted); }
+  .rbtn[data-route="a"] .swatch { background: var(--rt-a); }
+  .rbtn[data-route="b"] .swatch { background: var(--rt-b); }
+  .rbtn[data-route="c"] .swatch { background: var(--rt-c); }
+  .rbtn[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .mapframe { border: 1px solid var(--line); background: var(--paper-2); overflow-x: auto; padding: 0.4rem; }
+  .mapframe svg { display: block; width: 100%; height: auto; min-width: 620px; }
+
+  .readout {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    min-height: 1.5em;
+    border-left: 2px solid var(--line);
+    padding-left: 0.7rem;
+  }
+  .readout b { color: var(--ink); font-weight: 500; }
+
+  .lake, .sea { fill: var(--water); }
+  .sea { opacity: var(--water-a); }
+  .lake { opacity: var(--land-lake); }
+  .coast { fill: none; stroke: var(--water); opacity: 0.5; stroke-width: 1.4; }
+
+  .geo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    fill: var(--muted);
+    opacity: 0.8;
+  }
+
+  .rline { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+  .fline { fill: none; stroke-width: 2; stroke-dasharray: 7 6; opacity: 0.75; }
+  #route-a .rline { stroke: var(--rt-a); }
+  #route-b .rline { stroke: var(--rt-b); }
+  #route-c .rline, #route-c .fline { stroke: var(--rt-c); }
+
+  #route-a .dot { fill: var(--paper-2); stroke: var(--rt-a); }
+  #route-b .dot { fill: var(--paper-2); stroke: var(--rt-b); }
+  #route-c .dot { fill: var(--paper-2); stroke: var(--rt-c); }
+  .dot { stroke-width: 3; }
+  .dot.small { stroke-width: 2.5; }
+
+  .plabel { font-family: var(--sans); font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+  .slabel { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); }
+  .flabel { font-family: var(--mono); font-size: 10.5px; fill: var(--rt-c); }
+
+  .stop { cursor: pointer; }
+  .stop:hover .dot, .stop:focus-visible .dot { fill: var(--ink); }
+  .stop:focus-visible { outline: none; }
+  .stop:focus-visible .plabel { text-decoration: underline; }
+
+  .route { transition: opacity 0.18s ease; }
+  .hub .dot { fill: var(--paper-2); stroke: var(--ink); stroke-width: 3; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .route { transition: none; }
+    * { scroll-behavior: auto !important; }
+  }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
+  .tab {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.55rem 0.9rem 0.5rem;
+    color: var(--muted);
+    cursor: pointer;
+    margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--ink-2); }
+  .tab[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+  .tab[data-route="a"][aria-selected="true"] { border-bottom-color: var(--rt-a); }
+  .tab[data-route="b"][aria-selected="true"] { border-bottom-color: var(--rt-b); }
+  .tab[data-route="c"][aria-selected="true"] { border-bottom-color: var(--rt-c); }
+
+  .panel { display: flex; flex-direction: column; gap: 1.3rem; padding-top: 0.4rem; }
+  .panel[hidden] { display: none; }
+
+  .panel-intro { display: flex; flex-direction: column; gap: 0.55rem; }
+  .panel-intro h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; margin: 0; letter-spacing: -0.01em; }
+  .panel-intro p { color: var(--ink-2); font-size: 0.97rem; }
+
+  .quickstats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.6rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .quickstats b { color: var(--ink); font-weight: 500; }
+
+  .stops { display: flex; flex-direction: column; }
+
+  .card {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    gap: 0 1rem;
+    padding: 1.35rem 0.7rem 1.35rem 0;
+    border-top: 1px solid var(--line-soft);
+    scroll-margin-top: 1.5rem;
+  }
+  .card:first-child { border-top: none; }
+  .card.flash { background: var(--paper-3); }
+
+  .idx { font-family: var(--mono); font-size: 0.75rem; padding-top: 0.42rem; font-variant-numeric: tabular-nums; }
+  .panel[data-route="a"] .idx { color: var(--rt-a); }
+  .panel[data-route="b"] .idx { color: var(--rt-b); }
+  .panel[data-route="c"] .idx { color: var(--rt-c); }
+
+  .card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.28rem 0.65rem; }
+  .card h4 { font-family: var(--serif); font-size: 1.22rem; font-weight: 400; margin: 0; letter-spacing: -0.008em; }
+
+  .nights {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 0.08rem 0.4rem;
+    white-space: nowrap;
+  }
+
+  .leg { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
+  .card .why { margin-top: 0.55rem; color: var(--ink-2); font-size: 0.95rem; }
+
+  ul.hits { list-style: none; padding: 0; margin: 0.7rem 0 0; display: flex; flex-direction: column; gap: 0.28rem; font-size: 0.92rem; }
+  ul.hits li { padding-left: 0.95rem; position: relative; color: var(--ink-2); }
+  ul.hits li::before { content: ""; position: absolute; left: 0; top: 0.66em; width: 5px; height: 5px; }
+  .panel[data-route="a"] ul.hits li::before { background: var(--rt-a); }
+  .panel[data-route="b"] ul.hits li::before { background: var(--rt-b); }
+  .panel[data-route="c"] ul.hits li::before { background: var(--rt-c); }
+  ul.hits li b { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 480px) {
+    .card { grid-template-columns: 1fr; gap: 0.25rem; }
+    .idx { padding-top: 0; }
+  }
+
+  .notes { display: flex; flex-direction: column; gap: 1.1rem; }
+  .note { display: flex; flex-direction: column; gap: 0.22rem; }
+  .note h4 {
+    font-family: var(--mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+    color: var(--ink);
+  }
+  .note p { color: var(--ink-2); font-size: 0.94rem; }
+  .note.warn { border-left: 2px solid var(--rt-a); padding: 0.1rem 0 0.1rem 0.95rem; border-radius: 0; }
+  .note.warn h4 { color: var(--rt-a); }
+
+  footer {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--line);
+    padding-top: 1.05rem;
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Dor + partner / 12 days / 11 nights / October 2026</div>
+    <h1>Three loops out of New York, and back to it</h1>
+    <p class="standfirst">Same airport in, same airport out. Three nights in the city, eight on the road. One loop goes north into village New England, one south down the Blue Ridge, one west to Niagara and Chicago.</p>
+  </header>
+
+  <div class="verdict">
+    <div class="eyebrow">Recommendation</div>
+    <h2>Take Loop A, New England.</h2>
+    <p>Closing the loop is what separates these three. Loop A goes up the inland side and comes home down the coast, so <b>no day is longer than 2h30</b> and you never drive the same road twice. Loop B has to turn around and retrace the same ridge. Loop C only works if you fly one leg.</p>
+    <dl class="verdict-grid">
+      <div class="vg"><dt>Rationale</dt><dd>1,405 km with a 2h30 ceiling. Eight nights, seven different towns, peak colour 5 to 15 October.</dd></div>
+      <div class="vg"><dt>Cost</dt><dd>No Niagara, no Chicago. Loop C is the only one that gets you those, and it costs a 6-hour driving day plus a flight.</dd></div>
+      <div class="vg"><dt>Next action</dt><dd>Book Woodstock and Stowe this week. They sell out 4 to 6 months ahead for October.</dd></div>
+    </dl>
+  </div>
+
+  <section>
+    <h2 class="sec">Side by side</h2>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" class="ca">A. New England</th>
+            <th scope="col" class="cb">B. Blue Ridge</th>
+            <th scope="col" class="cc">C. Great Lakes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">What only this one gives you</th>
+            <td>The densest run of small towns in the country, and a loop where you never drive the same road twice. Mountains on the way up, fishing harbours on the way back.</td>
+            <td>750 km of road built for no purpose except to be beautiful. No trucks, no billboards, no junctions, 45 mph. Nothing else in America is like it.</td>
+            <td>The two icons. Standing under Niagara on the boat, and Chicago, which is the best big city between the coasts.</td>
+          </tr>
+          <tr>
+            <th scope="row">Choose it if</th>
+            <td>You want the most villages and the least driving, and you care that October looks the way October is supposed to look.</td>
+            <td>The drive itself is the holiday, and you would rather have one great road than seven pretty towns.</td>
+            <td>You would regret missing Niagara and Chicago more than you would enjoy another covered bridge.</td>
+          </tr>
+          <tr>
+            <th scope="row">Skip it if</th>
+            <td>You want a famous landmark to point at. There isn't one on this loop, and that is deliberate.</td>
+            <td>You need a town at the end of each day with something going on. Most of these have 7,000 people and one street.</td>
+            <td>Long driving days ruin trips for you, or you did not come to America to spend three nights in a metropolis.</td>
+          </tr>
+          <tr><th scope="row">Driving</th><td class="num">1,405 km</td><td class="num">1,550 km</td><td class="num">1,810 km</td></tr>
+          <tr><th scope="row">Wheel time</th><td class="num">17h00</td><td class="num">19h30</td><td class="num">18h00 + a 2h flight</td></tr>
+          <tr><th scope="row">Longest day</th><td class="num">2h30</td><td class="num">4h00</td><td class="num">6h00</td></tr>
+          <tr><th scope="row">Loop shape</th><td>True loop. Up the mountains, home along the coast</td><td>Down and back. The return retraces the same ridge on the eastern side</td><td>Out by road, home by air. Drop the car in Chicago</td></tr>
+          <tr><th scope="row">Overnight towns</th><td class="num">7</td><td class="num">6</td><td class="num">5</td></tr>
+          <tr><th scope="row">Food</th><td>Lobster rolls, cider donuts, maple, oysters on the return coast</td><td>BBQ, biscuits, Virginia cider and country ham</td><td>Buffalo wings, Amish pie, Chicago deep dish and Italian beef</td></tr>
+          <tr><th scope="row">Foliage</th><td>Peaks 5 to 15 Oct. Best in the country</td><td>Peaks 15 to 25 Oct at elevation</td><td>Peaks 10 to 20 Oct. Not the reason you go</td></tr>
+          <tr><th scope="row">Weak spot</th><td>Priciest lodging, books out earliest</td><td>Asheville and the Smokies are too far south to reach on a loop</td><td>One 6-hour day, an internal flight, and a one-way car fee</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mapblock">
+    <h2 class="sec">The map</h2>
+    <p class="lede">Filter to one loop, or show all three. Click any stop to jump to its notes below. New York is the start and the finish on all three.</p>
+
+    <div class="maptools" role="group" aria-label="Filter routes on the map">
+      <button class="rbtn" type="button" data-route="all" aria-pressed="true"><span class="swatch" aria-hidden="true"></span>All three</button>
+      <button class="rbtn" type="button" data-route="a" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>A. New England</button>
+      <button class="rbtn" type="button" data-route="b" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>B. Blue Ridge</button>
+      <button class="rbtn" type="button" data-route="c" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>C. Great Lakes</button>
+    </div>
+
+    <div class="mapframe">
+      <svg id="map" viewBox="0 0 920 660" data-active="all" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of the eastern United States showing three circular road trip routes that start and finish in New York">
+
+        <path class="sea" d="M 918,40 L 882,101 L 857,126 L 831,159 L 836,184 L 822,202 L 864,236 L 799,254 L 744,266 L 679,309 L 675,345 L 633,418 L 587,528 L 610,620 L 610,656 L 918,656 Z"/>
+        <path class="coast" d="M 882,101 L 857,126 L 831,159 L 836,184 L 822,202 L 864,236 L 799,254 L 744,266 L 679,309 L 675,345 L 633,418 L 587,528 L 610,620"/>
+
+        <path class="lake" d="M 243,240 L 287,223 L 356,199 L 425,172 L 453,172 L 416,193 L 356,223 L 310,254 L 264,248 Z"/>
+        <path class="lake" d="M 412,144 L 472,141 L 541,138 L 578,108 L 564,101 L 518,108 L 448,111 L 412,126 Z"/>
+        <path class="lake" d="M 54,245 L 46,193 L 50,132 L 55,71 L 102,53 L 116,132 L 112,193 L 98,229 L 72,245 Z"/>
+
+        <text class="geo" x="352" y="216" text-anchor="middle">LAKE ERIE</text>
+        <text class="geo" x="492" y="127" text-anchor="middle">LAKE ONTARIO</text>
+        <text class="geo" x="126" y="92">LAKE MICHIGAN</text>
+        <text class="geo" x="770" y="404">ATLANTIC</text>
+
+        <g id="route-b" class="route">
+          <polyline class="rline" points="679,302 573,343 473,426 428,481 405,512 473,465 530,356 679,302"/>
+          <g class="stop" tabindex="0" role="button" data-route="b" data-stop="1" data-name="Lancaster, Pennsylvania" data-meta="1 night / 260 km / 3h from New York">
+            <circle class="dot" cx="573" cy="343" r="6"/>
+            <text class="plabel" x="585" y="347">Lancaster</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="b" data-stop="2" data-name="Shenandoah, Virginia" data-meta="2 nights / 240 km / 3h from Lancaster">
+            <circle class="dot" cx="473" cy="426" r="6"/>
+            <text class="plabel" x="485" y="430">Shenandoah</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="b" data-stop="3" data-name="Lexington, Virginia" data-meta="1 night / 160 km / 2h down Skyline Drive">
+            <circle class="dot" cx="428" cy="481" r="6"/>
+            <text class="plabel" x="417" y="485" text-anchor="end">Lexington</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="b" data-stop="4" data-name="Roanoke and Floyd, Virginia" data-meta="2 nights / 130 km / 2h on the Blue Ridge Parkway. Turnaround point">
+            <circle class="dot" cx="405" cy="512" r="6"/>
+            <text class="plabel" x="417" y="516">Blue Ridge Parkway</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="b" data-stop="5" data-name="Charlottesville, Virginia" data-meta="1 night / 190 km / 2h30 heading home">
+            <circle class="dot" cx="473" cy="465" r="6"/>
+            <text class="plabel" x="485" y="469">Charlottesville</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="b" data-stop="6" data-name="Gettysburg, Pennsylvania" data-meta="1 night / 250 km / 3h, then 4h back to New York">
+            <circle class="dot" cx="530" cy="356" r="6"/>
+            <text class="plabel" x="518" y="360" text-anchor="end">Gettysburg</text>
+          </g>
+        </g>
+
+        <g id="route-c" class="route">
+          <polyline class="rline" points="679,302 547,200 445,158 324,254 320,311 77,245 50,231"/>
+          <path class="fline" d="M 50,231 Q 360,440 679,302"/>
+          <text class="flabel" x="332" y="398">FLY CHICAGO TO NEW YORK, 2H</text>
+          <g class="stop" tabindex="0" role="button" data-route="c" data-stop="1" data-name="Finger Lakes, New York" data-meta="1 night / 430 km / 4h30 from New York">
+            <circle class="dot" cx="547" cy="200" r="6"/>
+            <text class="plabel" x="547" y="186" text-anchor="middle">Finger Lakes</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="c" data-stop="2" data-name="Niagara Falls" data-meta="2 nights / 230 km / 2h30">
+            <circle class="dot" cx="445" cy="158" r="6"/>
+            <text class="plabel" x="433" y="155" text-anchor="end">Niagara Falls</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="c" data-stop="3" data-name="Cleveland, Ohio" data-meta="1 night / 320 km / 3h30 along Lake Erie">
+            <circle class="dot" cx="324" cy="254" r="6"/>
+            <text class="plabel" x="336" y="258">Cleveland</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="c" data-stop="4" data-name="Amish Country, Ohio" data-meta="1 night / 130 km / 1h30">
+            <circle class="dot" cx="320" cy="311" r="6"/>
+            <text class="plabel" x="332" y="315">Amish Country</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="c" data-stop="5" data-name="Indiana Dunes" data-meta="Stop on the drive in, no overnight">
+            <circle class="dot small" cx="77" cy="245" r="4.5"/>
+            <text class="slabel" x="89" y="263">Indiana Dunes</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="c" data-stop="5" data-name="Chicago, Illinois" data-meta="3 nights / 700 km / 6h, the long day. Drop the car here">
+            <circle class="dot" cx="50" cy="231" r="6"/>
+            <text class="plabel" x="30" y="216">Chicago</text>
+          </g>
+        </g>
+
+        <g id="route-a" class="route">
+          <polyline class="rline" points="679,302 709,211 748,125 740,73 812,98 852,122 835,183 773,263 679,302"/>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="1" data-name="The Berkshires, Massachusetts" data-meta="1 night / 220 km / 2h30 from New York">
+            <circle class="dot" cx="709" cy="211" r="6"/>
+            <text class="plabel" x="697" y="215" text-anchor="end">Berkshires</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="2" data-name="Woodstock, Vermont" data-meta="2 nights / 210 km / 2h30">
+            <circle class="dot" cx="748" cy="125" r="6"/>
+            <text class="plabel" x="736" y="129" text-anchor="end">Woodstock</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="3" data-name="Stowe, Vermont" data-meta="1 night / 130 km / 1h30. Northernmost point">
+            <circle class="dot" cx="740" cy="73" r="6"/>
+            <text class="plabel" x="728" y="77" text-anchor="end">Stowe</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="4" data-name="White Mountains, New Hampshire" data-meta="1 night / 175 km / 2h15">
+            <circle class="dot" cx="812" cy="98" r="6"/>
+            <text class="plabel" x="812" y="84" text-anchor="middle">White Mountains</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="5" data-name="Portland, Maine" data-meta="1 night / 140 km / 1h45. The turn for home">
+            <circle class="dot" cx="852" cy="122" r="6"/>
+            <text class="plabel" x="840" y="114" text-anchor="end">Portland</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="6" data-name="Rockport and Cape Ann, Massachusetts" data-meta="1 night / 170 km / 2h down the coast">
+            <circle class="dot" cx="835" cy="183" r="6"/>
+            <text class="plabel" x="847" y="187">Rockport</text>
+          </g>
+          <g class="stop" tabindex="0" role="button" data-route="a" data-stop="7" data-name="Mystic, Connecticut" data-meta="1 night / 160 km / 2h, then 2h30 home">
+            <circle class="dot" cx="773" cy="263" r="6"/>
+            <text class="plabel" x="785" y="267">Mystic</text>
+          </g>
+        </g>
+
+        <g class="hub">
+          <circle class="dot" cx="679" cy="302" r="7"/>
+          <text class="plabel" x="667" y="300" text-anchor="end">New York</text>
+          <text class="slabel" x="667" y="316" text-anchor="end">Start and finish, 3 nights</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="readout" id="readout">Hover or click a stop for details.</p>
+  </section>
+
+  <section>
+    <h2 class="sec">The loops in full</h2>
+
+    <div class="tabs" role="tablist" aria-label="Route details">
+      <button class="tab" type="button" role="tab" data-route="a" id="tab-a" aria-controls="panel-a" aria-selected="true">A. New England</button>
+      <button class="tab" type="button" role="tab" data-route="b" id="tab-b" aria-controls="panel-b" aria-selected="false">B. Blue Ridge</button>
+      <button class="tab" type="button" role="tab" data-route="c" id="tab-c" aria-controls="panel-c" aria-selected="false">C. Great Lakes</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-a" data-route="a" aria-labelledby="tab-a">
+      <div class="panel-intro">
+        <h3>Loop A. Up the mountains, home along the coast</h3>
+        <p>The cleanest loop of the three. North through the Berkshires into Vermont, east across the White Mountains to Maine, then south down the coast through fishing villages and back into the city. Seven towns, no road driven twice, nothing over 2h30.</p>
+        <p class="quickstats"><span><b>1,405 km</b></span><span><b>17h</b> wheel time</span><span><b>8</b> nights out</span><span><b>2h30</b> longest day</span></p>
+      </div>
+      <div class="stops">
+
+        <article class="card" id="a-0">
+          <div class="idx">00</div>
+          <div>
+            <div class="card-head"><h4>New York</h4><span class="nights">2 nights now, 1 at the end</span></div>
+            <div class="leg">Arrival. Do not rent the car yet.</div>
+            <p class="why">You have done this city, so treat the front two nights as a jet lag buffer rather than a second first visit. Base in the East Village or Lower East Side and stay on foot. Collect the car the morning you leave.</p>
+            <ul class="hits">
+              <li><b>Russ &amp; Daughters</b> for bagels, then the Lower East Side and Nolita</li>
+              <li><b>West Village</b> side streets, the High Line north into Chelsea Market</li>
+              <li>Manhattan parking runs 50 to 70 dollars a night. A loop means you return the car to the same branch and pay no drop fee at all</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-1">
+          <div class="idx">01</div>
+          <div>
+            <div class="card-head"><h4>The Berkshires</h4><span class="nights">1 night</span></div>
+            <div class="leg">220 km / 2h30 / Taconic Parkway</div>
+            <p class="why">Your first small town, the gentle version. Take the Taconic rather than the interstate. It is the pretty road and it costs you nothing.</p>
+            <ul class="hits">
+              <li><b>Stockbridge</b> Main Street, the one Norman Rockwell painted. Ten minutes, one photo, move on</li>
+              <li><b>Great Barrington</b> for the night: bookshops, Rubiner's cheesemongers, sourdough pizza at Baba Louie's</li>
+              <li>Skip MASS MoCA. Famous, and a three hour art warehouse</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-2">
+          <div class="idx">02</div>
+          <div>
+            <div class="card-head"><h4>Woodstock, Vermont</h4><span class="nights">2 nights</span></div>
+            <div class="leg">210 km / 2h30 / Route 7 through Manchester</div>
+            <p class="why">The one people call the prettiest town in America, and it earns it. Village green, covered bridge in the middle of town, everything within twenty minutes. Your one proper slow day.</p>
+            <ul class="hits">
+              <li><b>Sugarbush Farm</b> up a dirt road: free cheese and maple tasting, they let you try everything</li>
+              <li><b>Quechee Gorge</b> and the Simon Pearce glassblowing studio inside a working mill</li>
+              <li><b>Mount Tom</b> if you want one short climb: 45 minutes up, valley view, done</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-3">
+          <div class="idx">03</div>
+          <div>
+            <div class="card-head"><h4>Stowe, Vermont</h4><span class="nights">1 night</span></div>
+            <div class="leg">130 km / 1h30 / Route 100. Northernmost point of the loop</div>
+            <p class="why">Mountain Vermont. Small main street, big peaks behind it, and the best golden hour of the trip.</p>
+            <ul class="hits">
+              <li><b>Cold Hollow Cider Mill</b> in Waterbury: apple cider donuts made in front of you, still warm</li>
+              <li><b>Smugglers' Notch</b>, a road that squeezes between cliffs and boulders</li>
+              <li><b>Trapp Family Lodge</b> at sunset, yes that family. Austrian bakery, beer hall, mountain lawn</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-4">
+          <div class="idx">04</div>
+          <div>
+            <div class="card-head"><h4>White Mountains</h4><span class="nights">1 night</span></div>
+            <div class="leg">175 km / 2h15 / base in North Conway</div>
+            <p class="why">The dramatic day. The road is the attraction, the town is just where you sleep.</p>
+            <ul class="hits">
+              <li><b>Kancamagus Highway</b>, 55 km of forest and overlooks with nothing built on it</li>
+              <li><b>The Flume Gorge</b>, a boardwalk through a narrow rock chasm, about an hour</li>
+              <li><b>Mount Washington</b> by cog railway or auto road, if the weather holds</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-5">
+          <div class="idx">05</div>
+          <div>
+            <div class="card-head"><h4>Portland, Maine</h4><span class="nights">1 night</span></div>
+            <div class="leg">140 km / 1h45 / the turn for home</div>
+            <p class="why">The food stop, and the point where the loop bends south. Small city, cobblestone Old Port, a restaurant scene well out of proportion to its size. One night is tight here, so eat early and eat twice.</p>
+            <ul class="hits">
+              <li><b>Eventide Oyster Co.</b> brown butter lobster roll, and <b>Duckfat</b> for duck fat fries</li>
+              <li><b>Tandem Coffee + Bakery</b>, and <b>The Holy Donut</b>, made with potato</li>
+              <li><b>Portland Head Light</b> at Cape Elizabeth, the most photographed lighthouse in America</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-6">
+          <div class="idx">06</div>
+          <div>
+            <div class="card-head"><h4>Rockport and Cape Ann</h4><span class="nights">1 night</span></div>
+            <div class="leg">170 km / 2h / down the coast, stopping in Portsmouth</div>
+            <p class="why">A granite fishing village on a hook of land north of Boston. This is the coastal half of the loop paying off: harbours, lobster boats, and no mountains in sight.</p>
+            <ul class="hits">
+              <li><b>Bearskin Neck</b>, a narrow spit of old fishing shacks turned into shops, and <b>Motif No. 1</b>, the red shack at the end of it</li>
+              <li><b>Roy Moore Lobster Co.</b>, eat it on the back deck over the water, paper plates only</li>
+              <li>Stop in <b>Portsmouth, New Hampshire</b> for lunch on the way down. Proper harbour town, Market Square</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="a-7">
+          <div class="idx">07</div>
+          <div>
+            <div class="card-head"><h4>Mystic, Connecticut</h4><span class="nights">1 night</span></div>
+            <div class="leg">160 km / 2h, then 2h30 back into New York</div>
+            <p class="why">Last night on the road, and a good one. A drawbridge in the middle of a seafaring village, and it is 2h30 from returning the car.</p>
+            <ul class="hits">
+              <li><b>Mystic Seaport</b>, a working 19th century shipyard with tall ships you can board</li>
+              <li>The <b>bascule drawbridge</b> lifts on the hour through the season. Everyone stops to watch</li>
+              <li><b>Stonington Borough</b> next door is prettier and half as busy. Go there for dinner instead</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-b" data-route="b" aria-labelledby="tab-b" hidden>
+      <div class="panel-intro">
+        <h3>Loop B. Down the Blue Ridge and back up the Piedmont</h3>
+        <p>Two purpose-built scenic roads end to end, Skyline Drive into the Blue Ridge Parkway, then a turnaround and a different way home through Jefferson country and Gettysburg. Mountain towns rather than pretty villages.</p>
+        <p class="quickstats"><span><b>1,550 km</b></span><span><b>19h30</b> wheel time</span><span><b>8</b> nights out</span><span><b>4h</b> longest day</span></p>
+      </div>
+      <div class="stops">
+
+        <article class="card" id="b-0">
+          <div class="idx">00</div>
+          <div>
+            <div class="card-head"><h4>New York</h4><span class="nights">2 nights now, 1 at the end</span></div>
+            <div class="leg">Arrival. Same as Loop A.</div>
+            <p class="why">Land, sleep it off, one real day on foot, then out. Car collected on departure morning, returned to the same branch, no drop fee.</p>
+          </div>
+        </article>
+
+        <article class="card" id="b-1">
+          <div class="idx">01</div>
+          <div>
+            <div class="card-head"><h4>Lancaster, Pennsylvania</h4><span class="nights">1 night</span></div>
+            <div class="leg">260 km / 3h / the weak leg, mostly interstate</div>
+            <p class="why">Pennsylvania Dutch country. Horse and buggy on the shoulder, farm stands, a genuinely different America. Worth the dull drive to get here.</p>
+            <ul class="hits">
+              <li><b>Central Market</b> in Lancaster, the oldest continuously running farmers market in the country</li>
+              <li><b>Bird-in-Hand</b> and <b>Intercourse</b>, the Amish farm villages. Yes, those are the real names</li>
+              <li>Whoopie pies and shoofly pie from a roadside stand, cash only</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="b-2">
+          <div class="idx">02</div>
+          <div>
+            <div class="card-head"><h4>Shenandoah, Virginia</h4><span class="nights">2 nights</span></div>
+            <div class="leg">240 km / 3h / base in Luray or Sperryville</div>
+            <p class="why">Skyline Drive runs 170 km along the ridge with 75 overlooks. You do not hike it, you drive it slowly and stop constantly.</p>
+            <ul class="hits">
+              <li><b>Skyline Drive</b> end to end, a full unhurried day with stops</li>
+              <li><b>Luray Caverns</b>, a cathedral-sized cave with an organ that plays the stalactites. Odd and great</li>
+              <li><b>Sperryville</b> and <b>Washington VA</b>, tiny mountain towns with good coffee</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="b-3">
+          <div class="idx">03</div>
+          <div>
+            <div class="card-head"><h4>Lexington, Virginia</h4><span class="nights">1 night</span></div>
+            <div class="leg">160 km / 2h / where Skyline Drive becomes the Parkway</div>
+            <p class="why">A town of 7,000 people, all red brick and white columns, wedged between two old colleges. Nothing to see, which is the point.</p>
+            <ul class="hits">
+              <li>Walk <b>Main Street</b> end to end in twenty minutes, then do it again</li>
+              <li><b>Devils Backbone</b> brewery out in the fields, if the weather is good</li>
+              <li><b>Natural Bridge</b>, a 65 metre limestone arch Jefferson once owned</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="b-4">
+          <div class="idx">04</div>
+          <div>
+            <div class="card-head"><h4>Blue Ridge Parkway, Roanoke and Floyd</h4><span class="nights">2 nights</span></div>
+            <div class="leg">130 km / 2h on the Parkway. Turnaround point of the loop</div>
+            <p class="why">The southernmost point you can reach and still get home. Base in Roanoke for the food or Floyd for the strangeness.</p>
+            <ul class="hits">
+              <li><b>Mabry Mill</b>, the single most photographed spot on the entire Parkway</li>
+              <li><b>Floyd Country Store</b> Friday Night Jamboree: old-time Appalachian music, locals flatfoot dancing, no alcohol, no irony. The real thing</li>
+              <li><b>Roanoke City Market</b>, running since 1882, and <b>Peaks of Otter</b> for sunset</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="b-5">
+          <div class="idx">05</div>
+          <div>
+            <div class="card-head"><h4>Charlottesville, Virginia</h4><span class="nights">1 night</span></div>
+            <div class="leg">190 km / 2h30 / heading home on the eastern side</div>
+            <p class="why">College town at the foot of the mountains with a genuinely good pedestrian main street. October here is apple season.</p>
+            <ul class="hits">
+              <li><b>Monticello</b>, Jefferson's house. A UNESCO site and worth the 90 minutes</li>
+              <li><b>Downtown Mall</b>, eight blocks of brick with no cars on it</li>
+              <li><b>Carter Mountain Orchard</b>: apple picking, cider donuts and a view over the whole valley</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="b-6">
+          <div class="idx">06</div>
+          <div>
+            <div class="card-head"><h4>Gettysburg, Pennsylvania</h4><span class="nights">1 night</span></div>
+            <div class="leg">250 km / 3h, then 4h back into New York</div>
+            <p class="why">Last night out, and the longest drive of the trip waiting the next morning. The town itself is small and barely changed since the 1860s.</p>
+            <ul class="hits">
+              <li>Drive the <b>battlefield auto tour</b> yourself, about three hours, 16 stops, no guide needed</li>
+              <li><b>Little Round Top</b> at sunset for the view over the whole field</li>
+              <li>Leave early the next day. The final leg is 4 hours and the last of it is New York traffic</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-c" data-route="c" aria-labelledby="tab-c" hidden>
+      <div class="panel-intro">
+        <h3>Loop C. Niagara and Chicago, home by air</h3>
+        <p>The bucket-list route. Driving both ways would add twelve hours and two dead days, so this closes the loop with a two-hour flight instead: drive out, drop the car in Chicago, fly back for your last night in New York.</p>
+        <p class="quickstats"><span><b>1,810 km</b> driving</span><span><b>18h</b> wheel time</span><span><b>8</b> nights out</span><span><b>6h</b> longest day</span></p>
+      </div>
+      <div class="stops">
+
+        <article class="card" id="c-0">
+          <div class="idx">00</div>
+          <div>
+            <div class="card-head"><h4>New York</h4><span class="nights">2 nights now, 1 at the end</span></div>
+            <div class="leg">Arrival, and the last night after you fly back from Chicago.</div>
+            <p class="why">Unlike the other two loops, this one has a one-way car rental. Budget an extra 150 to 400 dollars for the Chicago drop, plus roughly 100 to 150 each for the flight home.</p>
+          </div>
+        </article>
+
+        <article class="card" id="c-1">
+          <div class="idx">01</div>
+          <div>
+            <div class="card-head"><h4>Finger Lakes, New York</h4><span class="nights">1 night</span></div>
+            <div class="leg">430 km / 4h30 / the longest opening leg of the three loops</div>
+            <p class="why">Long thin glacial lakes with vineyards down both sides and gorges cut into the rock between them. Base in Watkins Glen or Ithaca.</p>
+            <ul class="hits">
+              <li><b>Watkins Glen State Park</b>, a 2 km gorge trail past 19 waterfalls on stone staircases. The best short walk anywhere in this document</li>
+              <li><b>Taughannock Falls</b>, taller than Niagara, ten minutes from the car park</li>
+              <li><b>Seneca Lake</b> wineries, and <b>Ithaca</b> for coffee and a college town evening</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="c-2">
+          <div class="idx">02</div>
+          <div>
+            <div class="card-head"><h4>Niagara Falls</h4><span class="nights">2 nights</span></div>
+            <div class="leg">230 km / 2h30</div>
+            <p class="why">Worth every bit of the hype from up close, and the American town beside it is grim. Stay on the Canadian side for the panorama, or in Buffalo for the food.</p>
+            <ul class="hits">
+              <li><b>Maid of the Mist</b> boat into the base of the falls, running to late October</li>
+              <li><b>Cave of the Winds</b>, a wooden walkway directly under Bridal Veil Falls. You get soaked</li>
+              <li><b>Buffalo</b> is 30 minutes away: the original Anchor Bar wings, and the Elmwood Village strip</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="c-3">
+          <div class="idx">03</div>
+          <div>
+            <div class="card-head"><h4>Cleveland, Ohio</h4><span class="nights">1 night</span></div>
+            <div class="leg">320 km / 3h30 / along the Lake Erie shore</div>
+            <p class="why">Rust belt city halfway through a comeback. One night is exactly right.</p>
+            <ul class="hits">
+              <li><b>West Side Market</b>, a 1912 food hall that is still a real market, not a tourist one</li>
+              <li><b>Rock and Roll Hall of Fame</b>. The one museum in this whole document worth two hours</li>
+              <li><b>Cuyahoga Valley</b> on the way out: Brandywine Falls is a 20 minute boardwalk loop</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="c-4">
+          <div class="idx">04</div>
+          <div>
+            <div class="card-head"><h4>Amish Country, Ohio</h4><span class="nights">1 night</span></div>
+            <div class="leg">130 km / 1h30 / base in Berlin or Millersburg</div>
+            <p class="why">Holmes County holds the largest Amish settlement in the world, bigger than Lancaster and far less touristed. Horse and buggy traffic, no power lines, a different century.</p>
+            <ul class="hits">
+              <li><b>Heini's Cheese Chalet</b> for the tasting counter, <b>Der Dutchman</b> for pie</li>
+              <li>Drive the back roads between <b>Charm</b>, <b>Walnut Creek</b> and <b>Winesburg</b></li>
+              <li>Much of it closes Sunday, and photographing people is not welcome. Buy from the farm stands instead</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="c-5">
+          <div class="idx">05</div>
+          <div>
+            <div class="card-head"><h4>Chicago</h4><span class="nights">3 nights</span></div>
+            <div class="leg">700 km / 6h, stopping at Indiana Dunes. Then fly home to New York</div>
+            <p class="why">Break the drive at <b>Indiana Dunes</b>, sand dunes on Lake Michigan with the Chicago skyline floating across the water. Then three nights in the best walkable big city in the middle of the country. Drop the car the moment you arrive.</p>
+            <ul class="hits">
+              <li><b>Architecture river cruise</b>. The one organised tour worth taking anywhere in this document</li>
+              <li><b>Millennium Park</b> and the Bean, the <b>Riverwalk</b>, and <b>360 Chicago</b> for the tilting glass ledge</li>
+              <li>Deep dish at <b>Lou Malnati's</b>, Italian beef at <b>Al's</b>, a hot dog at <b>Portillo's</b></li>
+              <li><b>Wicker Park</b> and <b>Logan Square</b> for neighbourhood wandering, <b>Green Mill</b> for late jazz</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Applies to all three</h2>
+    <div class="notes">
+
+      <div class="note warn">
+        <h4>Book accommodation now</h4>
+        <p>Village inns in Vermont and New Hampshire sell out four to six months ahead for October. The other two loops are more forgiving, but Niagara and Charlottesville still fill. Whichever loop you pick, lock the two-night stops first.</p>
+      </div>
+
+      <div class="note warn">
+        <h4>Avoid Columbus Day weekend, 10 to 12 October 2026</h4>
+        <p>The busiest weekend of the year on all three loops. If your dates overlap it, be parked in one town for those three nights rather than driving between them.</p>
+      </div>
+
+      <div class="note">
+        <h4>The loop pays for itself on the car</h4>
+        <p>Loops A and B return the car to the branch you took it from, so there is no one-way drop fee at all. That is worth 150 to 400 dollars against the linear version. Loop C is the exception because you leave the car in Chicago.</p>
+      </div>
+
+      <div class="note">
+        <h4>The car</h4>
+        <p>Israeli licence plus an International Driving Permit, sorted before you fly. Take E-ZPass from the rental desk for northeastern tolls. Collect the car on the morning you leave New York, never for the city nights.</p>
+      </div>
+
+      <div class="note">
+        <h4>Paperwork</h4>
+        <p>ESTA for the US, apply at least 72 hours out. Loop C only: if you want the Canadian side of Niagara, you also need a Canadian eTA. Cheap and online, but you cannot get it at the border.</p>
+      </div>
+
+      <div class="note">
+        <h4>Where to sleep</h4>
+        <p>Airbnb works in New York, Portland, Chicago and Charlottesville. In the small towns book a village inn instead. Same price, better located, breakfast included, and in a village of 200 people that is a large part of the experience.</p>
+      </div>
+
+      <div class="note">
+        <h4>Timing the colour</h4>
+        <p>Foliage runs north to south and high ground down. Loop A peaks 5 to 15 October, Loop C around 10 to 20 October, Loop B at elevation 15 to 25 October. All three are sequenced to follow the colour rather than chase it.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>Draft. Nothing booked. Distances and drive times are estimates without stops.</footer>
+
+</div>
+
+<script>
+  (function () {
+    var map = document.getElementById('map');
+    var readout = document.getElementById('readout');
+    var routeBtns = Array.prototype.slice.call(document.querySelectorAll('.rbtn'));
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+    var stops = Array.prototype.slice.call(document.querySelectorAll('.stop'));
+    var flashed = null;
+
+    var ROUTE_NAMES = { a: 'New England', b: 'Blue Ridge', c: 'Great Lakes' };
+
+    function setMapRoute(key) {
+      map.setAttribute('data-active', key);
+      ['a', 'b', 'c'].forEach(function (r) {
+        var g = document.getElementById('route-' + r);
+        if (g) g.style.opacity = (key === 'all' || key === r) ? '1' : '0.13';
+      });
+      routeBtns.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.route === key));
+      });
+    }
+
+    function selectTab(key) {
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.route === key)); });
+      panels.forEach(function (p) { p.hidden = p.dataset.route !== key; });
+    }
+
+    routeBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        setMapRoute(b.dataset.route);
+        if (b.dataset.route !== 'all') selectTab(b.dataset.route);
+        readout.textContent = b.dataset.route === 'all'
+          ? 'Showing all three loops. Click a stop for details.'
+          : 'Showing loop ' + b.dataset.route.toUpperCase() + ', ' + ROUTE_NAMES[b.dataset.route] + '.';
+      });
+    });
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        selectTab(t.dataset.route);
+        setMapRoute(t.dataset.route);
+      });
+      t.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(t);
+        var next = null;
+        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (next) { e.preventDefault(); next.focus(); next.click(); }
+      });
+    });
+
+    function describe(g) {
+      readout.innerHTML = '<b>' + g.dataset.name + '</b> &nbsp; ' + g.dataset.meta;
+    }
+
+    function goTo(g) {
+      var key = g.dataset.route;
+      selectTab(key);
+      setMapRoute(key);
+      var card = document.getElementById(key + '-' + g.dataset.stop);
+      if (!card) return;
+      if (flashed) flashed.classList.remove('flash');
+      card.classList.add('flash');
+      flashed = card;
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    stops.forEach(function (g) {
+      g.addEventListener('mouseenter', function () { describe(g); });
+      g.addEventListener('focus', function () { describe(g); });
+      g.addEventListener('click', function () { describe(g); goTo(g); });
+      g.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); describe(g); goTo(g); }
+      });
+    });
+  })();
+</script>
