@@ -513,6 +513,17 @@ const HOTEL1_CONF = {
   ]
 };
 
+const HOTEL2_CONF = {
+  code: 'CCA6-3F61',
+  title: 'Villa Esperia ★★★★',
+  lines: [
+    'Via Nazionale 244, Taormina',
+    'צ\'ק־אין: 18.9.2026 מ־14:00 · צ\'ק־אאוט: 20.9.2026 עד 11:00 (2 לילות)',
+    'חדר: Classic Room with Double or Twin Bed · ארוחת בוקר כלולה',
+    'מחיר: ₪582 ללילה · סה"כ ₪1,164'
+  ]
+};
+
 const BOOKINGS = [
   { title:'טיסות', rows:[
     { id:'f0', title:'טיסה הלוך־חזור · Wizz Air', detail:'תל אביב ↔ קטניה · לפרטים ומושבים לחצו על קוד האישור', when:'17.9 / 26.9', booked:true, confirmation:FLIGHT_CONF }] },
@@ -521,7 +532,7 @@ const BOOKINGS = [
     { id:'c2', title:'החזרת הרכב · TargetRent', detail:'Catania Fontanarossa Airport · לפני טיסה 18:00', when:'26.9 16:00', booked:true }] },
   { title:'לינה', rows:[
     { id:'h1', title:'Catania International Airport Hotel', detail:'★★★★ · Superior with Free Shuttle · ארוחת בוקר · לילה 1', when:'17.9', booked:true, confirmation:HOTEL1_CONF },
-    { id:'h2', title:'טאורמינה', detail:'2 לילות · נוף לים אם אפשר', when:'18.9–19.9', href:'https://www.booking.com/searchresults.html?ss=Taormina' },
+    { id:'h2', title:'Villa Esperia · טאורמינה', detail:'★★★★ · Classic Room · ארוחת בוקר · 2 לילות', when:'18.9–19.9', booked:true, confirmation:HOTEL2_CONF },
     { id:'h3', title:'פלרמו', detail:'2 לילות · מרחק הליכה מהשווקים', when:'20.9–21.9', href:'https://www.booking.com/searchresults.html?ss=Palermo' },
     { id:'h4', title:'אגריג\'נטו', detail:'לילה אחד · קרוב לעמק המקדשים', when:'22.9', href:'https://www.booking.com/searchresults.html?ss=Agrigento' },
     { id:'h5', title:'סקוליטי · Mangia\'s Costa Ragusa Borgo', detail:'2 לילות · מלון על החוף, חוף פרטי ובריכה', when:'23.9–24.9', href:'https://www.booking.com/searchresults.html?ss=Mangia%27s+Costa+Ragusa+Borgo+Scoglitti' },
@@ -539,7 +550,7 @@ const EXPENSES = { currency:'₪', note:'סכומים משוערים בשקלי�
     { label:'רכב שכור · TargetRent · Fiat 500X ($312.17)', amount:956 }] },
   { title:'לינה', rows:[
     { label:'Catania International Airport Hotel · לילה 1', amount:416 },
-    { label:'טאורמינה · 2 לילות', amount:null, booked:false },
+    { label:'Villa Esperia · טאורמינה · 2 לילות', amount:1164 },
     { label:'פלרמו · 2 לילות', amount:null, booked:false },
     { label:'אגריג\'נטו · לילה 1', amount:null, booked:false },
     { label:'סקוליטי · 2 לילות', amount:null, booked:false },

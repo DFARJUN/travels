@@ -55,7 +55,7 @@
     connectedCallback() {
       this.style.display = 'block';
       this._host = document.createElement('div');
-      this._host.style.cssText = 'position:absolute;inset:0;background:#dfe9ef';
+      this._host.style.cssText = 'position:absolute;inset:0;background:#dfe9ef;direction:ltr';
       if (getComputedStyle(this).position === 'static') this.style.position = 'relative';
       this.appendChild(this._host);
       loadLeaflet().then((L) => this._init(L)).catch(() => {
