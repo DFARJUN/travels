@@ -118,10 +118,11 @@
             iconSize: [30, 30],
             iconAnchor: [15, 15],
             html:
-              `<div data-pin="${s.id}" style="width:28px;height:28px;border-radius:50%;background:${k.fill};` +
+              `<div data-pin="${s.id}" style="position:relative;width:28px;height:28px;border-radius:50%;background:${k.fill};` +
               `border:2.5px solid ${k.ring};box-shadow:0 2px 8px rgba(16,27,45,.35);display:grid;place-items:center;` +
               `font:600 12px/1 Rubik,system-ui,sans-serif;color:${lightFill(s) ? '#101b2d' : '#fff'};` +
-              `transition:transform .18s ease">${s.label != null ? s.label : i + 1}</div>`,
+              `transition:transform .18s ease">${s.label != null ? s.label : i + 1}` +
+              `${s.nights != null ? `<span title="לילות" style="position:absolute;top:-8px;left:-8px;min-width:17px;height:17px;padding:0 3px;border-radius:999px;background:#101b2d;color:#fff;font:700 10px/17px Rubik,system-ui,sans-serif;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.35)">${s.nights}</span>` : ''}</div>`,
           }),
         }).addTo(this._layer);
         m.bindTooltip(s.place, { direction: 'top', offset: [0, -16] });
@@ -141,9 +142,11 @@
       this._active = id;
       this._markers.forEach((m, key) => {
         const el = m.getElement() && m.getElement().querySelector('[data-pin]');
-        if (!el) return;
-        el.style.transform = key === id ? 'scale(1.45)' : 'scale(1)';
-        el.style.zIndex = key === id ? 900 : 400;
+        if (el) {
+          el.style.transform = key === id ? 'scale(1.45)' : 'scale(1)';
+          el.style.zIndex = key === id ? 900 : 400;
+        }
+        if (key !== id) m.closeTooltip();
       });
       if (id && this._markers.has(id)) this._markers.get(id).openTooltip();
     }
