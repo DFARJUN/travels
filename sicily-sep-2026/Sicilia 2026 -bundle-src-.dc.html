@@ -90,7 +90,7 @@
           <div>
             <div style="padding-bottom:34px;border-bottom:1px solid #ebebeb">
               <h2 style="margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em">מזרח, מערב, וחוף מפנק לקראת הסוף</h2>
-              <p style="margin:14px 0 0;font-size:17.5px;line-height:1.75;color:#444;max-width:64ch;text-wrap:pretty">קטניה → טאורמינה ואטנה במזרח → צ'פאלו ופלרמו במערב → עמק המקדשים באגריג'נטו → שני לילות חוף מפנקים בסקוליטי → לילה אחרון באורטיג'ה, שעה מהשדה. הטיסות הלוך־חזור מקטניה, והרכב נאסף ומוחזר באותו שדה תעופה. ספטמבר נותן 26–29 מעלות, ים חם לשחייה והמון פחות תיירים מאוגוסט.</p>
+              <p style="margin:14px 0 0;font-size:17.5px;line-height:1.75;color:#444;max-width:64ch;text-wrap:pretty">קטניה → טאורמינה ואטנה במזרח → צ'פאלו ופולינה בצפון (פלרמו כטיול יום) → עצירה ב־Villa Romana del Casale → שני לילות חוף מפנקים בסקוליטי → לילה אחרון באורטיג'ה, שעה מהשדה. הטיסות הלוך־חזור מקטניה, והרכב נאסף ומוחזר באותו שדה תעופה. ספטמבר נותן 26–29 מעלות, ים חם לשחייה והמון פחות תיירים מאוגוסט.</p>
             </div>
 
             <div style="padding:34px 0;border-bottom:1px solid #ebebeb">
@@ -396,14 +396,14 @@ const DAYS = [
       {when:'צהריים',text:'יין וגבינות ביקב קטן על המדרונות. עצירה קולינרית שאין כמותה.'},
       {when:'אחר הצהריים',text:'חזרה לטאורמינה: Teatro Antico (תיאטרון יווני עם אטנה והים ברקע) וגרניטה ב־Bam Bar.'},
       {when:'ערב',text:'Isola Bella או הכפר ההררי קסטלמולה.'}] },
-  { id:'d3', dayLabel:'יום 3', dateLabel:'ראשון 20.9', title:'צ\'פאלו והתמקמות בפולינה', meta:'לינה בפולינה (1/2)', tags:['צ\'פאלו','קתדרלה נורמנית','Mangia\'s Pollina Resort'],
+  { id:'d3', dayLabel:'יום 3', dateLabel:'ראשון 20.9', title:'צ\'פאלו והתמקמות בפולינה', meta:'לינה בפולינה (1/3)', tags:['צ\'פאלו','קתדרלה נורמנית','Mangia\'s Pollina Resort'],
     label:'3', kind:'port', place:'צ\'פאלו', lat:38.0392, lng:14.0229,
     blocks:[
       {when:'בוקר',text:'נוסעים מערבה לאורך חוף הצפון ועוצרים בצ\'פאלו — עיר עתיקה, קתדרלה נורמנית, חוף וארוחה. אופציונלי: טיפוס קצר ל־La Rocca.'},
       {when:'אחר הצהריים',text:'צ\'ק־אין ב־Mangia\'s Pollina Resort (כ־15 דקות מצ\'פאלו) — מלון על החוף עם בריכה וחוף פרטי.'},
       {when:'ערב',text:'שקיעה על החוף וארוחה במלון או בצ\'פאלו.'}],
     note:'הבסיס עבר מפלרמו לפולינה (Mangia\'s Pollina Resort). פלרמו ומונריאלה הפכו לטיול יום אופציונלי למחרת.' },
-  { id:'d4', dayLabel:'יום 4', dateLabel:'שני 21.9', title:'טיול יום לפלרמו ומונריאלה', meta:'לינה בפולינה (2/2)', tags:['מונריאלה','שוק Ballarò','בריכה/חוף בפולינה'],
+  { id:'d4', dayLabel:'יום 4', dateLabel:'שני 21.9', title:'טיול יום לפלרמו ומונריאלה', meta:'לינה בפולינה (2/3)', tags:['מונריאלה','שוק Ballarò','בריכה/חוף בפולינה'],
     label:'4', kind:'port', stay:false, place:'פלרמו', lat:38.1157, lng:13.3615,
     blocks:[
       {when:'בוקר',text:'טיול יום לפלרמו (כשעה מפולינה). קתדרלת מונריאלה — פסיפסי זהב ביזנטיים מהיפים שיש בעולם. מגיעים מוקדם.'},
@@ -411,18 +411,21 @@ const DAYS = [
       {when:'אחר הצהריים',text:'חזרה לפולינה — זמן בבריכה ובחוף הפרטי של המלון.'},
       {when:'ערב',text:'ארוחה על החוף בפולינה או בצ\'פאלו.'}],
     note:'אלטרנטיבה: לוותר על פלרמו וליהנות מיום חוף ופינוק ב־Mangia\'s Pollina Resort + צ\'פאלו.' },
-  { id:'d5', dayLabel:'יום 5', dateLabel:'שלישי 22.9', title:'עמק המקדשים באגריג\'נטו', meta:'לינה באגריג\'נטו (1/1)', tags:['שעת הזהב','מקדשים מוארים'],
-    label:'5', kind:'port', place:'אגריג\'נטו', lat:37.2903, lng:13.5847,
+  { id:'d5', dayLabel:'יום 5', dateLabel:'שלישי 22.9', title:'צ\'פאלו, חוף ופינוק בפולינה', meta:'לינה בפולינה (3/3)', tags:['צ\'פאלו','חוף','בריכה'],
+    label:'5', kind:'port', place:'צ\'פאלו', lat:38.0392, lng:14.0229,
     blocks:[
-      {when:'בוקר',text:'אורזים ונוסעים דרומה לאגריג\'נטו (כשעתיים).'},
-      {when:'אחר הצהריים וערב',text:'Valle dei Templi: מקדשים יווניים על רכס מעל הים, שמורים טוב יותר מאשר ביוון עצמה. הולכים בשעת הזהב — קריר יותר והאור הטוב ביותר. חלק מהמקדשים מוארים בלילה.'},
-      {when:'שינה',text:'לינה באגריג\'נטו. עצירת לילה אחד.'}] },
-  { id:'d6', dayLabel:'יום 6', dateLabel:'רביעי 23.9', title:'דרומה לחוף בסקוליטי', meta:'לינה במלון Mangia\'s Costa Ragusa Borgo - סקוליטי (1/2)', tags:['מלון על החוף','חוף פרטי','בריכה'],
-    label:'6', kind:'port', place:'סקוליטי', lat:36.8987, lng:14.4590,
+      {when:'בוקר',text:'בוקר בצ\'פאלו — הטיילת, החוף, ושיטוט בעיר העתיקה. גרניטה ובריוש.'},
+      {when:'אחר הצהריים',text:'חוזרים ל־Mangia\'s Pollina Resort לזמן חוף ובריכה — יום רגוע אחרי פלרמו.'},
+      {when:'ערב',text:'שקיעה על החוף וארוחה במלון או בצ\'פאלו.'}],
+    note:'הלילה השלישי בפולינה. יום להאט בו לפני המעבר דרומה מחר.' },
+  { id:'d6', dayLabel:'יום 6', dateLabel:'רביעי 23.9', title:'מעבר לסקוליטי עם עצירה ב־Villa Romana del Casale', meta:'לינה במלון Mangia\'s Costa Ragusa Borgo - סקוליטי (1/2)', tags:['Villa Romana del Casale','פסיפסים רומיים','דרך הדרום'],
+    label:'6', kind:'port', stay:false, place:'Villa Romana del Casale (פיאצה ארמרינה)', lat:37.3646, lng:14.3345,
     blocks:[
-      {when:'בוקר',text:'אורזים ונוסעים לאורך החוף הדרומי לסקוליטי (כשעתיים).'},
-      {when:'אחר הצהריים',text:'צ\'ק־אין ל־Mangia\'s Costa Ragusa Borgo (23.9–25.9), חוף פרטי ובריכה.'},
-      {when:'ערב',text:'שקיעה על הנמל וארוחה מול הים.'}] },
+      {when:'בוקר',text:'אורזים ויוצאים מפולינה דרומה. עצירה ב־Villa Romana del Casale ליד פיאצה ארמרינה (כ־2 שעות מפולינה) — הפסיפסים הרומיים הכי משומרים בעולם. מגיעים מוקדם, לפני הקבוצות.'},
+      {when:'צהריים',text:'אופציה בדרך: קלטאג\'ירונה (מדרגות הקרמיקה) לקפה וקניות, או ממשיכים ישר.'},
+      {when:'אחר הצהריים',text:'צ\'ק־אין ל־Mangia\'s Costa Ragusa Borgo בסקוליטי (הכל כלול), חוף פרטי ובריכה.'},
+      {when:'ערב',text:'שקיעה על הנמל וארוחה מול הים.'}],
+    note:'זה יום המעבר — שוברים את הנסיעה מפולינה לסקוליטי ב־Villa Romana del Casale (ובאופציה קלטאג\'ירונה).' },
   { id:'d7', dayLabel:'יום 7', dateLabel:'חמישי 24.9', title:'יום פינוק בסקוליטי', meta:'לינה במלון Mangia\'s Costa Ragusa Borgo - סקוליטי (2/2)', tags:['חוף פרטי','בריכה','ספא'],
     label:'7', kind:'port', place:'סקוליטי', lat:36.8987, lng:14.4590,
     blocks:[
@@ -448,14 +451,13 @@ const DAYS = [
 const BASES = [
   { slotId:'base-cta', name:'ליד שדה התעופה', nights:'לילה 1', dates:'17.9', covers:'נחיתה, שינה, בלי תוכניות.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Catania%20panorama.jpg?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/File:Catania_panorama.jpg' },
   { slotId:'base-taormina', name:'טאורמינה', nights:'2 לילות', dates:'18.9–20.9', covers:'אוכל רחוב בקטניה בדרך, אטנה והתיאטרון.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Taormina%20BW%202012-10-05%2016-23-06.JPG?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/File:Taormina_BW_2012-10-05_16-23-06.JPG' },
-  { slotId:'base-palermo', name:'פולינה · צ\'פאלו', nights:'2 לילות', dates:'20.9–22.9', covers:'Mangia\'s Pollina Resort על החוף. צ\'פאלו לצד, ופלרמו/מונריאלה כטיול יום.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Cefal%C3%B9%20BW%202025-05-01%2010-22-58%20v1.jpg?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/File:Cefal%C3%B9_BW_2025-05-01_10-22-58_v1.jpg' },
-  { slotId:'base-agrigento', name:'אגריג\'נטו', nights:'לילה 1', dates:'22.9', covers:'עמק המקדשים בשעת הזהב, בדרך לחוף.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Agrigento%20TemplesValley%200066.jpg?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/File:Agrigento_TemplesValley_0066.jpg' },
+  { slotId:'base-palermo', name:'פולינה · צ\'פאלו', nights:'3 לילות', dates:'20.9–23.9', covers:'Mangia\'s Pollina Resort על החוף. צ\'פאלו לצד, פלרמו/מונריאלה כטיול יום, ויום חוף ופינוק.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Cefal%C3%B9%20BW%202025-05-01%2010-22-58%20v1.jpg?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/File:Cefal%C3%B9_BW_2025-05-01_10-22-58_v1.jpg' },
   { slotId:'base-scoglitti', name:'סקוליטי · חוף', nights:'2 לילות', dates:'23.9–25.9', covers:'Mangia\'s Costa Ragusa Borgo (23.9–25.9). יומיים חוף מפנקים + נוטו/מודיקה/רגוזה.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20a%20Scoglitti.jpg?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/File:Sunset_a_Scoglitti.jpg' },
   { slotId:'base-ortigia', name:'אורטיג\'ה', nights:'לילה 1', dates:'25.9', covers:'נוטו וסירקוזה בדרך, לילה אחרון צמוד לשדה.', img:'https://commons.wikimedia.org/wiki/Special:FilePath/Ortigia%20-%20Siracusa.jpg?width=900', credit:'Wikimedia Commons', creditHref:'https://commons.wikimedia.org/wiki/Category:Ortigia' }
 ];
 
 const HIGHLIGHTS = [
-  { icon:'🏛️', title:'עמק המקדשים בשעת הזהב', text:'מקדשים יווניים על רכס מעל הים, שמורים טוב יותר מאשר ביוון.' },
+  { icon:'🏛️', title:'הפסיפסים ב־Villa Romana del Casale', text:'הפסיפסים הרומיים הכי משומרים בעולם, בעצירה בדרך דרומה.' },
   { icon:'✨', title:'פסיפסי הזהב במונריאלה', text:'קתדרלה ביזנטית שכולה זהב, 20 דקות מפלרמו.' },
   { icon:'🌋', title:'לגעת בלבה על אטנה', text:'רכבל או שבילי הלבה, ואחר כך יין ביקב על המדרונות.' },
   { icon:'🍽️', title:'סטריט פוד בשווקים', text:'ארנצ\'יני, פנלה, ספינצ\'ונה וקנולי שממולא במקום.' },
@@ -465,13 +467,13 @@ const HIGHLIGHTS = [
 const NOTES = [
   { label:'אזורי ZTL', text:'בכל עיר עתיקה — קטניה, אורטיג\'ה, טאורמינה, צ\'פאלו, פלרמו — יש הגבלת תנועה. חונים מחוץ ונכנסים ברגל.' },
   { label:'הרכב', text:'איסוף והחזרה באותו שדה תעופה בקטניה, כך שאין דמי מסלול חד־כיווני.' },
-  { label:'הנסיעות הארוכות', text:'טאורמינה → פלרמו (כ־4 שעות עם עצירה בצ\'פאלו), פלרמו → אגריג\'נטו (~2 שעות), ואגריג\'נטו → סקוליטי (~2 שעות). שאר הימים קצרים או טיולי יום.' },
+  { label:'הנסיעות הארוכות', text:'טאורמינה → פולינה (כ־3 שעות עם עצירה בצ\'פאלו), ופולינה → סקוליטי (~2.5 שעות עם עצירה ב־Villa Romana del Casale). שאר הימים קצרים או טיולי יום.' },
   { label:'הסוף הרגוע', text:'המלון בסקוליטי מוזמן 23.9–25.9 — יום 24 מלא לפינוק, צ\'ק־אאוט ב־25, ואז לילה אחרון באורטיג\'ה (~שעה מהשדה) במקום ריצה ישר לטיסה.' }
 ];
 
 const LISTS = [
   { id:'miss', icon:'⭐', title:'לא לעזוב בלי', sub:'תשעת הדברים שחייבים לסמן עד סוף הטיול.', items:[
-    'ארנצ\'יני בשוק בפלרמו או בקטניה','קנולו טרי שממולא במקום','גרניטה עם בריוש לארוחת בוקר','הנוף מהתיאטרון בטאורמינה','לגעת בלבה על אטנה','סמטאות אורטיג\'ה בשקיעה','פסיפסי הזהב במונריאלה','לעמוד בין המקדשים באגריג\'נטו בשעת הזהב','תמונה של הטיילת בצ\'פאלו'] },
+    'ארנצ\'יני בשוק בפלרמו או בקטניה','קנולו טרי שממולא במקום','גרניטה עם בריוש לארוחת בוקר','הנוף מהתיאטרון בטאורמינה','לגעת בלבה על אטנה','סמטאות אורטיג\'ה בשקיעה','פסיפסי הזהב במונריאלה','הפסיפסים הרומיים ב־Villa Romana del Casale','תמונה של הטיילת בצ\'פאלו'] },
   { id:'food', icon:'🍋', title:'אוכל וטעימות', sub:'רשימת הטעימות המדויקת מהמסלול.', items:[
     'pane e panelle בשוק La Pescheria','קפה ב־Prestipino בקטניה','כריך המונסטר ב־Caseificio Borderi','גלידה ב־Caffè Sicilia בנוטו','ספינצ\'ונה ו־stigghiola בבלארו','pani ca meusa לאמיצים','דגים במונדלו','יין וגבינות ביקב על מדרונות אטנה','גרניטה ב־Bam Bar בטאורמינה'] },
   { id:'shop', icon:'🛍️', title:'קניות ושווקים', sub:'מה קונים ואיפה, לפני שנוסעים מזרחה.', items:[
@@ -527,13 +529,13 @@ const HOTEL2_CONF = {
 };
 
 const HOTEL3_CONF = {
-  code: 'EBD1-6444',
+  code: 'FD7E-C343',
   title: 'Mangia\'s Pollina Resort ★★★★',
   lines: [
     'Contrada Rais-gerbi, Pollina',
-    'צ\'ק־אין: 20.9.2026 מ־16:00 · צ\'ק־אאוט: 22.9.2026 עד 10:00 (2 לילות)',
+    'צ\'ק־אין: 20.9.2026 מ־16:00 · צ\'ק־אאוט: 23.9.2026 עד 10:00 (3 לילות)',
     'חדר: Superior Double Room · ארוחת בוקר כלולה',
-    'מחיר: ₪719 ללילה · סה"כ ₪1,438'
+    'מחיר: ₪719 ללילה · סה"כ ₪2,157'
   ]
 };
 
@@ -557,12 +559,11 @@ const BOOKINGS = [
   { title:'לינה', rows:[
     { id:'h1', title:'Catania International Airport Hotel', detail:'★★★★ · Superior with Free Shuttle · ארוחת בוקר · לילה 1', when:'17.9', booked:true, confirmation:HOTEL1_CONF },
     { id:'h2', title:'Villa Esperia · טאורמינה', detail:'★★★★ · Classic Room · ארוחת בוקר · 2 לילות', when:'18.9–20.9', booked:true, confirmation:HOTEL2_CONF },
-    { id:'h3', title:'Mangia\'s Pollina Resort · פולינה', detail:'★★★★ · Superior Double · ארוחת בוקר · 2 לילות · על החוף', when:'20.9–22.9', booked:true, confirmation:HOTEL3_CONF },
-    { id:'h4', title:'אגריג\'נטו', detail:'לילה אחד · קרוב לעמק המקדשים', when:'22.9', href:'https://www.booking.com/searchresults.html?ss=Agrigento' },
+    { id:'h3', title:'Mangia\'s Pollina Resort · פולינה', detail:'★★★★ · Superior Double · ארוחת בוקר · 3 לילות · על החוף', when:'20.9–23.9', booked:true, confirmation:HOTEL3_CONF },
     { id:'h5', title:'Mangia\'s Costa Ragusa Borgo · סקוליטי', detail:'★★★★★ · הכל כלול · חוף פרטי ובריכה · 2 לילות', when:'23.9–25.9', booked:true, confirmation:HOTEL5_CONF },
     { id:'h6', title:'אורטיג\'ה, סירקוזה', detail:'לילה 1 · בתוך האי העתיק, צמוד לשדה', when:'25.9', href:'https://www.booking.com/searchresults.html?ss=Ortigia+Siracusa' }] },
   { title:'כרטיסים וסיורים', rows:[
-    { id:'t1', title:'Valle dei Templi', detail:'כניסה לשעת הזהב, כולל תאורת לילה', when:'22.9' },
+    { id:'t1', title:'Villa Romana del Casale', detail:'פסיפסים רומיים · עדיף להזמין כניסה מראש', when:'23.9' },
     { id:'t2', title:'רכבל אטנה (Funivia)', detail:'אלטרנטיבה בחינם: Crateri Silvestri', when:'19.9' },
     { id:'t3', title:'טעימות יין ביקב על מדרונות אטנה', detail:'שווה להזמין מראש, מקומות קטנים', when:'19.9' }] }
 ];
@@ -575,12 +576,11 @@ const EXPENSES = { currency:'₪', note:'סכומים משוערים בשקלי�
   { title:'לינה', rows:[
     { label:'Catania International Airport Hotel · לילה 1', amount:416 },
     { label:'Villa Esperia · טאורמינה · 2 לילות', amount:1164 },
-    { label:'Mangia\'s Pollina Resort · פולינה · 2 לילות', amount:1438 },
-    { label:'אגריג\'נטו · לילה 1', amount:null, booked:false },
+    { label:'Mangia\'s Pollina Resort · פולינה · 3 לילות', amount:2157 },
     { label:'Mangia\'s Costa Ragusa Borgo · סקוליטי · 2 לילות', amount:3550 },
     { label:'אורטיג\'ה · לילה 1', amount:null, booked:false }] },
   { title:'כרטיסים וסיורים', rows:[
-    { label:'Valle dei Templi', amount:null, booked:false },
+    { label:'Villa Romana del Casale', amount:null, booked:false },
     { label:'רכבל אטנה (Funivia)', amount:null, booked:false },
     { label:'טעימות יין ביקב על מדרונות אטנה', amount:null, booked:false }] },
   { title:'אוכל ומסעדות', rows:[
@@ -591,10 +591,9 @@ const EXPENSES = { currency:'₪', note:'סכומים משוערים בשקלי�
 const STAYS = [
   { id:'stay-1', num:1, name:'ליד שדה התעופה', nights:1, lat:37.4668, lng:15.0664 },
   { id:'stay-2', num:2, name:'טאורמינה', nights:2, lat:37.8526, lng:15.2874 },
-  { id:'stay-3', num:3, name:'פולינה', nights:2, lat:38.0181, lng:14.1470 },
-  { id:'stay-4', num:4, name:'אגריג\'נטו', nights:1, lat:37.2903, lng:13.5847 },
-  { id:'stay-5', num:5, name:'סקוליטי', nights:2, lat:36.8987, lng:14.4590 },
-  { id:'stay-6', num:6, name:'אורטיג\'ה', nights:1, lat:37.0594, lng:15.2933 }
+  { id:'stay-3', num:3, name:'פולינה', nights:3, lat:38.0181, lng:14.1470 },
+  { id:'stay-4', num:4, name:'סקוליטי', nights:2, lat:36.8987, lng:14.4590 },
+  { id:'stay-5', num:5, name:'אורטיג\'ה', nights:1, lat:37.0594, lng:15.2933 }
 ]; /* __FILL_STAYS__ */
 
 const TABS = [
